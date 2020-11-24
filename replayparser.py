@@ -55,19 +55,14 @@ class SC2Coach:
 	
 	def CommandCenterCreatedEvent_Me(self, e1): 
 		return (e1["_event"] == 'NNet.Replay.Tracker.SUnitInitEvent' and
-                                               #   e1['_gameloop'] != 0 )
                                                e1['_gameloop'] != 0 and
                                                e1["m_controlPlayerId"] == self.myId and
-                                               # e1['m_unitTypeName'] == b'OrbitalCommand')
                                                e1['m_unitTypeName'] == b'CommandCenter')
 
 	def OrbitalCreatedEvent_Me(self, e1): 
 		return (e1["_event"] == 'NNet.Replay.Tracker.SUnitTypeChangeEvent' and
-                                        #    e1['_gameloop'] != 0 )
                                          e1['_gameloop'] != 0 and
-                                        #  e1["m_controlPlayerId"] == self.myId and
                                          e1['m_unitTypeName'] == b'OrbitalCommand')
-                                        #  e1['m_unitTypeName'] == b'CommandCenter')
 
 
 	def SCVCreatedEvents_Me(self, e1): 
@@ -97,6 +92,7 @@ class SC2Coach:
 	
 	def get_replay_tracker_events(self):
 		replay = self.archive.read_file('replay.tracker.events')
+		
 		return self.protocol.decode_replay_tracker_events(replay)
 
 
