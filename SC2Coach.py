@@ -30,31 +30,34 @@ class SC2Coach:
 	def map_unitTag_tuple(self, e1):
 		return (e1['m_unitTagIndex'], e1['m_unitTagRecycle'])
 
-	def get_by_event_tag(eventTagIndex, eventTagRecycle):
-		return
+	# def filter_by_tagIndex(self, e1, tagIndex):
+
+	
 
 	def get_command_centers_finish(self):
 		myCommandCentersInit = self.get_command_centers_created()
-		myCommandCenterTags = map(self.map_unitTag_tuple, myCommandCentersInit)
+		myCommandCenterTags = list(map(self.map_unitTag_tuple, myCommandCentersInit))
 		#TODO: continue
 
+		rslt = [unitDone for unitDone in self.get_my_units_done_events()
+                    if( (unitDone['m_unitTagIndex'], unitDone['m_unitTagRecycle']) in myCommandCenterTags )]
 
+		return rslt
 
-
-	def get_units_done_events(self):
+	def get_my_units_done_events(self):
 		replay = self.archive.read_file('replay.tracker.events')
 
-		return filter(self.filter_SUnitsDoneEvent, self.protocol.decode_replay_tracker_events(replay))
+		return filter(self.filter_SUnitsDoneEvent, self.get_replay_tracker_events())
 
 	def get_orbitals_created(self):
 		replay = self.archive.read_file('replay.tracker.events')
 
-		return filter(self.filter_SUnitChangeType_MyOrbitals, self.protocol.decode_replay_tracker_events(replay))
+		return filter(self.filter_SUnitChangeType_MyOrbitals, self.get_replay_tracker_events())
 
 	def get_command_centers_created(self):
 		replay = self.archive.read_file('replay.tracker.events')
 
-		return filter(self.filter_MyCC_UnitInit, self.protocol.decode_replay_tracker_events(replay))
+		return list(filter(self.filter_MyCC_UnitInit, self.get_replay_tracker_events()))
 
 	def get_replay_tracker_events(self):
 		replay = self.archive.read_file('replay.tracker.events')
