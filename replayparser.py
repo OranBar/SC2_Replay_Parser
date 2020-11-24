@@ -3,6 +3,8 @@ import mpyq
 import os
 from s2protocol import versions
 
+gameLoopsInOneSecond = 22.4
+
 archive = mpyq.MPQArchive("C:\\Users\\King Pub\\Documents\\StarCraft II\\Accounts\\112520872\\2-S2-1-543752\\Replays\\Multiplayer\\Jagannatha LE (28).SC2Replay")
 contents = archive.header['user_data_header']['content']
 header = versions.latest().decode_replay_header(contents)
@@ -28,10 +30,19 @@ required_internal_files = ['replay.details',
 contents = archive.read_file('replay.tracker.events')
 print(len(contents))
 i = 0
-units_created_events = filter(
-	lambda e1: e1["_event"] == 'NNet.Replay.Tracker.SUnitBornEvent', protocol.decode_replay_tracker_events(contents))
+
+filterEvents = lambda e1: (e1["_event"] == 'NNet.Replay.Tracker.SUnitBornEvent' and
+                           e1["m_controlPlayerId"] == 2 and
+                           e1['m_unitTypeName'] == b'SCV' and
+						   e1['_gameloop'] != 0)
+
+
+
+
+units_created_events = filter( filterEvents, protocol.decode_replay_tracker_events(contents) )
 for event in units_created_events:
-	print(event)
+	# print(event)
+	print("SCV created at time "+ str(event['_gameloop']/gameLoopsInOneSecond) )
 
 
 # contents = archive.read_file('replay.game.events')
