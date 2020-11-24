@@ -6,7 +6,7 @@
 #                         'replay.tracker.events'
 #                         ]
 
-from SC2Coach import SC2Coach
+from SC2Coach import SC2ReplayData_Extractor
 import mpyq
 import os
 from s2protocol import versions
@@ -17,12 +17,13 @@ replayFilePath = "C:\\Users\\King Pub\\Documents\\StarCraft II\\Accounts\\112520
 writeToFile = True
 dbgFileName = "Dbg1.txt"
 
-code = SC2Coach(replayFilePath, myId)
+code = SC2ReplayData_Extractor(replayFilePath, myId)
 
 # events = filter(code.filter_SUnitChangeType_MyOrbitals,
 #                 code.get_replay_tracker_events())
 
 data = code.get_command_centers_production_queue()
+data = data.values()
 
 # myCommandCentersTags = code.get_my_command_centers_tags()
 
@@ -32,7 +33,6 @@ data = code.get_command_centers_production_queue()
 	# print(tagToProductionQueue);
 
 # """
-data = data.values()
 if(writeToFile):
 	f = open(dbgFileName, "w")
 	for event in data:

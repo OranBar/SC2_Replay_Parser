@@ -5,7 +5,7 @@ from s2protocol import versions
 gameLoopsInOneSecond = 22.4
 
 
-class SC2Coach:
+class SC2ReplayData_Extractor:
 
 	def __init__(self, replayFilePath, myId):
 		self.myId = myId
