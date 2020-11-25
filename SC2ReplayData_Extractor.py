@@ -41,7 +41,7 @@ class SC2ReplayData_Extractor:
 	def filter_by_tags(self, tags, eventsList):
 		rslt = [event for event in eventsList
                     if((event['m_unitTagIndex'], event['m_unitTagRecycle']) in tags)]
-		return rslt;
+		return rslt
 
 	def filter_by_creatorTags(self, creatorTags, eventsList):
 		rslt = [event for event in eventsList
@@ -58,7 +58,7 @@ class SC2ReplayData_Extractor:
 			curr_CC_ProductionQueue = self.filter_by_creatorTags(
 				tag, self.get_my_SCVs_born_events())
 
-			rslt[tag] = curr_CC_ProductionQueue
+			rslt[str(tag)] = curr_CC_ProductionQueue
 
 		return rslt
 
@@ -139,6 +139,11 @@ class SC2ReplayData_Extractor:
 		minutiGiustiGiusti = int(
 			gameloop / gameLoopsInOneSecond) // 60 + parteDecimale
 		return minutiGiustiGiusti
+
+	def gameloopToSeconds(self, gameloop):
+		seconds = gameloop / gameLoopsInOneSecond
+		seconds = round(seconds, 1)
+		return seconds
 
 	def map_add_time_to_events(self, e):
 		e['time'] = self.gameloopToMinutes(e['_gameloop'])
