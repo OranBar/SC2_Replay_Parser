@@ -1,6 +1,7 @@
 import mpyq
 import os
 from s2protocol import versions
+import json
 
 gameLoopsInOneSecond = 22.4
 
@@ -16,6 +17,19 @@ class SC2ReplayData_Extractor:
 		self.archive = mpyq.MPQArchive(path)
 		replay = self.archive.header['user_data_header']['content']
 		header = versions.latest().decode_replay_header(replay)
+		
+		self.contents = self.archive.read_file('replay.tracker.events')
+		self.details = self.archive.read_file('replay.details')
+		self.gameInfo = self.archive.read_file('replay.game.events')
+		self.init_data = self.archive.read_file('replay.initData')
+
+		self.metadata = json.loads(self.archive.read_file('replay.gamemetadata.json'))
+
+		# translating data into dict format info
+		# game_events = self.protocol.decode_replay_game_events(self.gameInfo)
+		# player_info = self.protocol.decode_replay_details(self.details)
+		# detailed_info = self.protocol.decode_replay_initdata(self.init_data)
+		# tracker_events = self.protocol.decode_replay_tracker_events(self.contents)
 
 		base_build = header['m_version']['m_baseBuild']
 		try:
@@ -68,7 +82,7 @@ class SC2ReplayData_Extractor:
 		rslt = self.filter_by_tags(
 			myCommandCenterTags, self.get_my_units_done_events())
 
-		rslt = list(map(self.map_add_time_to_events, rslt))
+		
 		return rslt
 
 	def get_my_units_done_events(self):
@@ -76,7 +90,7 @@ class SC2ReplayData_Extractor:
 
 		rslt = filter(self.filter_SUnitsDoneEvent, self.get_replay_tracker_events())
 		
-		rslt = list(map(self.map_add_time_to_events, rslt))
+		
 		return rslt
 
 	def get_my_SCVs_born_events(self):
@@ -84,21 +98,21 @@ class SC2ReplayData_Extractor:
 
 		rslt = filter(self.filter_SCVBornEvent, self.get_replay_tracker_events())
 
-		rslt = list(map(self.map_add_time_to_events, rslt))
+		
 		return rslt
 
 	def get_orbitals_created(self):
 		replay = self.archive.read_file('replay.tracker.events')
 
 		rslt = filter(self.filter_SUnitChangeType_MyOrbitals, self.get_replay_tracker_events())
-		rslt = list(map(self.map_add_time_to_events, rslt))
+		
 		return rslt
 
 	def get_command_centers_created(self):
 		replay = self.archive.read_file('replay.tracker.events')
 
 		rslt = list(filter(self.filter_MyCC_UnitInit, self.get_replay_tracker_events()))
-		rslt = list(map(self.map_add_time_to_events, rslt))
+		
 		return rslt
 
 	def get_replay_tracker_events(self):
@@ -106,6 +120,7 @@ class SC2ReplayData_Extractor:
 
 		rslt = self.protocol.decode_replay_tracker_events(replay)
 		rslt = list(map(self.map_add_time_to_events, rslt))
+		
 		return rslt
 
 	def filter_MyCC_UnitInit(self, e1):
