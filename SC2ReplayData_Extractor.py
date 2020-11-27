@@ -45,16 +45,21 @@ class SC2ReplayData_Extractor:
 		return (e1['m_unitTagIndex'], e1['m_unitTagRecycle'])
 
 	# def filter_by_tagIndex(self, e1, tagIndex):
-
+	#RELP
 	def get_my_command_centers_tags(self):
 		myCommandCentersInit = self.get_command_centers_created()
 		myCommandCenterTags = list(map(self.map_unitTag_tuple, myCommandCentersInit))
 
 		return myCommandCenterTags
 
-	def filter_by_tags(self, tags, eventsList):
+	def filter_by_tags_old(self, tags, eventsList):
 		rslt = [event for event in eventsList
                     if((event['m_unitTagIndex'], event['m_unitTagRecycle']) in tags)]
+		return rslt
+
+	def filter_by_tags(self, tags, eventsList):
+		rslt = [event for event in eventsList
+                    if("("+str(event['m_unitTagIndex'])+", "+str(event['m_unitTagRecycle'])+")" in tags)]
 		return rslt
 
 	def filter_by_creatorTags(self, creatorTags, eventsList):
@@ -106,7 +111,7 @@ class SC2ReplayData_Extractor:
 
 		rslt = filter(self.filter_SUnitChangeType_MyOrbitals, self.get_replay_tracker_events())
 		
-		return rslt
+		return list(rslt)
 
 	def get_command_centers_created(self):
 		replay = self.archive.read_file('replay.tracker.events')
@@ -123,11 +128,19 @@ class SC2ReplayData_Extractor:
 		
 		return rslt
 
+	def get_replay_game_events(self):
+		replay = self.archive.read_file('replay.game.events')
+
+		rslt = self.protocol.decode_replay_game_events(replay)
+		
+		return rslt
+
 	def filter_MyCC_UnitInit(self, e1):
-		return (e1["_event"] == 'NNet.Replay.Tracker.SUnitInitEvent' and
-                    e1['_gameloop'] != 0 and
-                    e1["m_controlPlayerId"] == self.myId and
-                    e1['m_unitTypeName'] == b'CommandCenter')
+		return ( (e1["_event"] == 'NNet.Replay.Tracker.SUnitInitEvent' 
+					or e1["_event"] == 'NNet.Replay.Tracker.SUnitBornEvent')
+				and
+				e1["m_controlPlayerId"] == self.myId and
+				e1['m_unitTypeName'] == b'CommandCenter' )
 
 	def filter_SUnitChangeType_MyOrbitals(self, e1):
 		return (e1["_event"] == 'NNet.Replay.Tracker.SUnitTypeChangeEvent' and
