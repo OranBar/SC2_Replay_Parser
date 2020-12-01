@@ -8,10 +8,22 @@ gameLoopsInOneSecond = 22.4
 
 class SC2ReplayData_Extractor:
 
-	def __init__(self, replayFilePath, myId):
-		self.myId = myId
-		# self.myId = self.get_my_id("GengisKhan") 
+	def __init__(self, replayFilePath, player_to_analyze_name):
+
 		self.replayHeader, self.protocol = self.build_replay(replayFilePath)
+		game_events = self.protocol.decode_replay_game_events(self.gameInfo)
+		tracker_events = self.protocol.decode_replay_tracker_events(self.contents)
+		
+		player_info = self.protocol.decode_replay_details(self.details)
+		# detailed_info = self.protocol.decode_replay_initdata(self.init_data)
+		self.myId = self.get_my_id(player_to_analyze_name, player_info)
+
+		self.game_events = list(map(
+			self.map_add_time_to_events, game_events))
+
+		self.tracker_events = list(map(
+			self.map_add_time_to_events, tracker_events))
+
 
 	def build_replay(self, path):
 		self.archive = mpyq.MPQArchive(path)
@@ -23,14 +35,8 @@ class SC2ReplayData_Extractor:
 		self.gameInfo = self.archive.read_file('replay.game.events')
 		self.init_data = self.archive.read_file('replay.initData')
 
-		self.metadata = json.loads(self.archive.read_file('replay.gamemetadata.json'))
-
-		# translating data into dict format info
-		# game_events = self.protocol.decode_replay_game_events(self.gameInfo)
-		# player_info = self.protocol.decode_replay_details(self.details)
-		# detailed_info = self.protocol.decode_replay_initdata(self.init_data)
-		# tracker_events = self.protocol.decode_replay_tracker_events(self.contents)
-
+		self.metadata = json.loads(
+			self.archive.read_file('replay.gamemetadata.json'))
 		base_build = header['m_version']['m_baseBuild']
 		try:
 			return (replay, versions.build(base_build))
@@ -38,8 +44,25 @@ class SC2ReplayData_Extractor:
 			return (replay, None)
 
 	#TODO
-	def get_my_id(self, string):
-		return self.myId
+	def get_my_id(self, myName, player_info):
+		player_1_name, player_2_name = self.get_player_names(player_info)
+		
+		if myName in player_1_name:
+			return 1
+		elif myName in player_2_name:
+			return 2
+		else:
+			raise Exception("Player Not Found")
+		 
+	
+	def get_player_names(self, player_info):
+		player_names = []
+		for player in player_info['m_playerList']:
+			player_names.append(player['m_name'])
+		
+		return (str(player_names[0]), str(player_names[1]))
+		
+
 
 	def map_unitTag_tuple(self, e1):
 		return (e1['m_unitTagIndex'], e1['m_unitTagRecycle'])
@@ -71,11 +94,10 @@ class SC2ReplayData_Extractor:
 		myCommandCenterTags = self.get_my_command_centers_tags()
 
 		rslt = {}
+		scv_born_events = self.get_my_SCVs_born_events()
 		for tag in myCommandCenterTags:
-			# curr_CC_ProductionQueue = filter(
-			# 	lambda e: (e['m_creatorUnitTagIndex'], e['m_creatorUnitTagRecycle']) in myCommandCenterTags, self.get_my_SCVs_born_events())
 			curr_CC_ProductionQueue = self.filter_by_creatorTags(
-				tag, self.get_my_SCVs_born_events())
+				tag, scv_born_events)
 
 			rslt[str(tag)] = curr_CC_ProductionQueue
 
@@ -83,57 +105,35 @@ class SC2ReplayData_Extractor:
 
 	def get_command_centers_finish(self):
 		myCommandCenterTags = self.get_my_command_centers_tags()
-		#TODO: continue
+
 		rslt = self.filter_by_tags(
 			myCommandCenterTags, self.get_my_units_done_events())
-
 		
-		return rslt
+		return list(rslt)
 
 	def get_my_units_done_events(self):
-		replay = self.archive.read_file('replay.tracker.events')
-
 		rslt = filter(self.filter_SUnitsDoneEvent, self.get_replay_tracker_events())
-		
-		
-		return rslt
+		return list(rslt)
 
 	def get_my_SCVs_born_events(self):
-		replay = self.archive.read_file('replay.tracker.events')
-
 		rslt = filter(self.filter_SCVBornEvent, self.get_replay_tracker_events())
-
-		
-		return rslt
+		return list(rslt)
 
 	def get_orbitals_created(self):
-		replay = self.archive.read_file('replay.tracker.events')
-
 		rslt = filter(self.filter_SUnitChangeType_MyOrbitals, self.get_replay_tracker_events())
 		
 		return list(rslt)
 
 	def get_command_centers_created(self):
-		replay = self.archive.read_file('replay.tracker.events')
-
-		rslt = list(filter(self.filter_MyCC_UnitInit, self.get_replay_tracker_events()))
+		rslt = filter(self.filter_MyCC_UnitInit, self.get_replay_tracker_events())
 		
-		return rslt
+		return list(rslt)
 
 	def get_replay_tracker_events(self):
-		replay = self.archive.read_file('replay.tracker.events')
-
-		rslt = self.protocol.decode_replay_tracker_events(replay)
-		rslt = list(map(self.map_add_time_to_events, rslt))
-		
-		return rslt
+		return self.tracker_events
 
 	def get_replay_game_events(self):
-		replay = self.archive.read_file('replay.game.events')
-
-		rslt = self.protocol.decode_replay_game_events(replay)
-		
-		return rslt
+		return self.game_events
 
 	def filter_MyCC_UnitInit(self, e1):
 		return ( (e1["_event"] == 'NNet.Replay.Tracker.SUnitInitEvent' 
