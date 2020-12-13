@@ -13,7 +13,7 @@ class SC2ReplayData_Extractor:
 		self.replayHeader, self.protocol = self.build_replay(replayFilePath)
 		game_events = self.protocol.decode_replay_game_events(self.gameInfo)
 		tracker_events = self.protocol.decode_replay_tracker_events(self.contents)
-		
+
 		player_info = self.protocol.decode_replay_details(self.details)
 		# detailed_info = self.protocol.decode_replay_initdata(self.init_data)
 		self.myId = self.get_my_id(player_to_analyze_name, player_info)
@@ -24,16 +24,15 @@ class SC2ReplayData_Extractor:
 		self.tracker_events = list(map(
 			self.map_add_time_to_events, tracker_events))
 
-
 	def build_replay(self, path):
 		self.archive = mpyq.MPQArchive(path)
 		replay = self.archive.header['user_data_header']['content']
 		header = versions.latest().decode_replay_header(replay)
-		
+
 		self.contents = self.archive.read_file('replay.tracker.events')
 		self.details = self.archive.read_file('replay.details')
 		self.gameInfo = self.archive.read_file('replay.game.events')
-		self.init_data = self.archive.read_file('replay.initData')
+		self.init_data = self.archive.read_file('replay.initDaa')
 
 		self.metadata = json.loads(
 			self.archive.read_file('replay.gamemetadata.json'))
@@ -46,23 +45,20 @@ class SC2ReplayData_Extractor:
 	#TODO
 	def get_my_id(self, myName, player_info):
 		player_1_name, player_2_name = self.get_player_names(player_info)
-		
+
 		if myName in player_1_name:
 			return 1
 		elif myName in player_2_name:
 			return 2
 		else:
 			raise Exception("Player Not Found")
-		 
-	
+
 	def get_player_names(self, player_info):
 		player_names = []
 		for player in player_info['m_playerList']:
 			player_names.append(player['m_name'])
-		
-		return (str(player_names[0]), str(player_names[1]))
-		
 
+		return (str(player_names[0]), str(player_names[1]))
 
 	def map_unitTag_tuple(self, e1):
 		return (e1['m_unitTagIndex'], e1['m_unitTagRecycle'])
@@ -87,7 +83,7 @@ class SC2ReplayData_Extractor:
 
 	def filter_by_creatorTags(self, creatorTags, eventsList):
 		rslt = [event for event in eventsList
-                    if(event['m_creatorUnitTagIndex'] == creatorTags[0] and event['m_creatorUnitTagRecycle'] == creatorTags[1]) ]
+                    if(event['m_creatorUnitTagIndex'] == creatorTags[0] and event['m_creatorUnitTagRecycle'] == creatorTags[1])]
 		return rslt
 
 	def get_command_centers_production_queue(self):
@@ -108,7 +104,7 @@ class SC2ReplayData_Extractor:
 
 		rslt = self.filter_by_tags(
 			myCommandCenterTags, self.get_my_units_done_events())
-		
+
 		return list(rslt)
 
 	def get_my_units_done_events(self):
@@ -121,12 +117,12 @@ class SC2ReplayData_Extractor:
 
 	def get_orbitals_created(self):
 		rslt = filter(self.filter_SUnitChangeType_MyOrbitals, self.get_replay_tracker_events())
-		
+
 		return list(rslt)
 
 	def get_command_centers_created(self):
 		rslt = filter(self.filter_MyCC_UnitInit, self.get_replay_tracker_events())
-		
+
 		return list(rslt)
 
 	def get_replay_tracker_events(self):
@@ -136,11 +132,11 @@ class SC2ReplayData_Extractor:
 		return self.game_events
 
 	def filter_MyCC_UnitInit(self, e1):
-		return ( (e1["_event"] == 'NNet.Replay.Tracker.SUnitInitEvent' 
-					or e1["_event"] == 'NNet.Replay.Tracker.SUnitBornEvent')
-				and
-				e1["m_controlPlayerId"] == self.myId and
-				e1['m_unitTypeName'] == b'CommandCenter' )
+		return ((e1["_event"] == 'NNet.Replay.Tracker.SUnitInitEvent'
+                    or e1["_event"] == 'NNet.Replay.Tracker.SUnitBornEvent')
+                    and
+                    e1["m_controlPlayerId"] == self.myId and
+                    e1['m_unitTypeName'] == b'CommandCenter')
 
 	def filter_SUnitChangeType_MyOrbitals(self, e1):
 		return (e1["_event"] == 'NNet.Replay.Tracker.SUnitTypeChangeEvent' and
@@ -170,12 +166,9 @@ class SC2ReplayData_Extractor:
 
 	def gameloopToSeconds(self, gameloop):
 		seconds = gameloop / gameLoopsInOneSecond
-		seconds = round(seconds, 1)
+		seconds = int(seconds)
 		return seconds
 
 	def map_add_time_to_events(self, e):
 		e['time'] = self.gameloopToMinutes(e['_gameloop'])
 		return e
-
-	
-

@@ -1,0 +1,2052 @@
+[
+	{
+		"1": {
+			"gameloop": 1120,
+			"resource_collection_rate": {
+				"minerals": 727,
+				"gas": 0
+			},
+			"unspent_resources": {
+				"minerals": 290,
+				"gas": 0
+			},
+			"resource_collection_rate_all": 727,
+			"unit": {
+				"SCV": {
+					"type": [
+						"unit",
+						"worker"
+					],
+					"live": 15,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 1,
+					"supply_provided": 0,
+					"mineral_cost": 50,
+					"gas_cost": 0
+				}
+			},
+			"building": {
+				"CommandCenter": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 400,
+					"gas_cost": 0
+				},
+				"SupplyDepotLowered": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				}
+			},
+			"upgrade": [],
+			"current_selection": {
+				"SCV": 1
+			},
+			"workers_active": 15,
+			"workers_killed": 0,
+			"supply": 16,
+			"supply_cap": 23,
+			"supply_block": 10.0,
+			"spm": 25,
+			"army_value": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_lost": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_collected": {
+				"minerals": 1590,
+				"gas": 0
+			},
+			"total_army_value": 0,
+			"total_resources_lost": 0,
+			"total_resouces_collected": 1590,
+			"race": {}
+		},
+		"2": {
+			"gameloop": 1120,
+			"resource_collection_rate": {
+				"minerals": 783,
+				"gas": 0
+			},
+			"unspent_resources": {
+				"minerals": 175,
+				"gas": 0
+			},
+			"resource_collection_rate_all": 783,
+			"unit": {
+				"Larva": {
+					"type": [
+						"unit"
+					],
+					"live": 1,
+					"died": 6,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				},
+				"Drone": {
+					"type": [
+						"unit",
+						"worker"
+					],
+					"live": 17,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 1,
+					"supply_provided": 0,
+					"mineral_cost": 50,
+					"gas_cost": 0
+				},
+				"Overlord": {
+					"type": [
+						"unit"
+					],
+					"live": 2,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 100,
+					"gas_cost": 0
+				}
+			},
+			"building": {
+				"Hatchery": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 300,
+					"gas_cost": 0
+				}
+			},
+			"upgrade": [],
+			"current_selection": {
+				"Overlord": 1
+			},
+			"workers_active": 17,
+			"workers_killed": 0,
+			"supply": 17,
+			"supply_cap": 22,
+			"supply_block": 10.0,
+			"spm": 2,
+			"army_value": {
+				"minerals": 200,
+				"gas": 0
+			},
+			"resources_lost": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_collected": {
+				"minerals": 1575,
+				"gas": 0
+			},
+			"total_army_value": 200,
+			"total_resources_lost": 0,
+			"total_resouces_collected": 1575,
+			"race": {
+				"creep": {
+					"coverage": [
+						0.016,
+						541
+					],
+					"tumors": 0
+				}
+			}
+		}
+	},
+	{
+		"1": {
+			"gameloop": 1234,
+			"resource_collection_rate": {
+				"minerals": 727,
+				"gas": 0
+			},
+			"unspent_resources": {
+				"minerals": 290,
+				"gas": 0
+			},
+			"resource_collection_rate_all": 727,
+			"unit": {
+				"SCV": {
+					"type": [
+						"unit",
+						"worker"
+					],
+					"live": 16,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 1,
+					"supply_provided": 0,
+					"mineral_cost": 50,
+					"gas_cost": 0
+				}
+			},
+			"building": {
+				"CommandCenter": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 400,
+					"gas_cost": 0
+				},
+				"SupplyDepotLowered": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				}
+			},
+			"upgrade": [],
+			"current_selection": {
+				"SCV": 1
+			},
+			"workers_active": 16,
+			"workers_killed": 0,
+			"supply": 16,
+			"supply_cap": 23,
+			"supply_block": 10.0,
+			"spm": 31,
+			"army_value": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_lost": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_collected": {
+				"minerals": 1590,
+				"gas": 0
+			},
+			"total_army_value": 0,
+			"total_resources_lost": 0,
+			"total_resouces_collected": 1590,
+			"race": {}
+		},
+		"2": {
+			"gameloop": 1234,
+			"resource_collection_rate": {
+				"minerals": 839,
+				"gas": 0
+			},
+			"unspent_resources": {
+				"minerals": 275,
+				"gas": 0
+			},
+			"resource_collection_rate_all": 839,
+			"unit": {
+				"Larva": {
+					"type": [
+						"unit"
+					],
+					"live": 1,
+					"died": 6,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				},
+				"Drone": {
+					"type": [
+						"unit",
+						"worker"
+					],
+					"live": 17,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 1,
+					"supply_provided": 0,
+					"mineral_cost": 50,
+					"gas_cost": 0
+				},
+				"Overlord": {
+					"type": [
+						"unit"
+					],
+					"live": 2,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 100,
+					"gas_cost": 0
+				}
+			},
+			"building": {
+				"Hatchery": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 300,
+					"gas_cost": 0
+				}
+			},
+			"upgrade": [],
+			"current_selection": {},
+			"workers_active": 17,
+			"workers_killed": 0,
+			"supply": 17,
+			"supply_cap": 22,
+			"supply_block": 10.0,
+			"spm": 2,
+			"army_value": {
+				"minerals": 200,
+				"gas": 0
+			},
+			"resources_lost": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_collected": {
+				"minerals": 1675,
+				"gas": 0
+			},
+			"total_army_value": 200,
+			"total_resources_lost": 0,
+			"total_resouces_collected": 1675,
+			"race": {
+				"creep": {
+					"coverage": [
+						0.016,
+						541
+					],
+					"tumors": 0
+				}
+			}
+		}
+	},
+	{
+		"1": {
+			"gameloop": 1345,
+			"resource_collection_rate": {
+				"minerals": 783,
+				"gas": 0
+			},
+			"unspent_resources": {
+				"minerals": 395,
+				"gas": 0
+			},
+			"resource_collection_rate_all": 783,
+			"unit": {
+				"SCV": {
+					"type": [
+						"unit",
+						"worker"
+					],
+					"live": 16,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 1,
+					"supply_provided": 0,
+					"mineral_cost": 50,
+					"gas_cost": 0
+				}
+			},
+			"building": {
+				"CommandCenter": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 400,
+					"gas_cost": 0
+				},
+				"SupplyDepotLowered": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				}
+			},
+			"upgrade": [],
+			"current_selection": {
+				"CommandCenter": 1
+			},
+			"workers_active": 16,
+			"workers_killed": 0,
+			"supply": 16,
+			"supply_cap": 23,
+			"supply_block": 10.0,
+			"spm": 32,
+			"army_value": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_lost": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_collected": {
+				"minerals": 1695,
+				"gas": 0
+			},
+			"total_army_value": 0,
+			"total_resources_lost": 0,
+			"total_resouces_collected": 1695,
+			"race": {}
+		},
+		"2": {
+			"gameloop": 1345,
+			"resource_collection_rate": {
+				"minerals": 867,
+				"gas": 0
+			},
+			"unspent_resources": {
+				"minerals": 30,
+				"gas": 0
+			},
+			"resource_collection_rate_all": 867,
+			"unit": {
+				"Larva": {
+					"type": [
+						"unit"
+					],
+					"live": 0,
+					"died": 6,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				},
+				"Drone": {
+					"type": [
+						"unit",
+						"worker"
+					],
+					"live": 17,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 1,
+					"supply_provided": 0,
+					"mineral_cost": 50,
+					"gas_cost": 0
+				},
+				"Overlord": {
+					"type": [
+						"unit"
+					],
+					"live": 2,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 100,
+					"gas_cost": 0
+				},
+				"Egg": {
+					"type": [
+						"unit"
+					],
+					"live": 2,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				}
+			},
+			"building": {
+				"Hatchery": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 300,
+					"gas_cost": 0
+				}
+			},
+			"upgrade": [],
+			"current_selection": {
+				"Egg": 1
+			},
+			"workers_active": 17,
+			"workers_killed": 0,
+			"supply": 17,
+			"supply_cap": 22,
+			"supply_block": 10.0,
+			"spm": 2,
+			"army_value": {
+				"minerals": 200,
+				"gas": 0
+			},
+			"resources_lost": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_collected": {
+				"minerals": 1780,
+				"gas": 0
+			},
+			"total_army_value": 200,
+			"total_resources_lost": 0,
+			"total_resouces_collected": 1780,
+			"race": {
+				"creep": {
+					"coverage": [
+						0.016,
+						541
+					],
+					"tumors": 0
+				}
+			}
+		}
+	},
+	{
+		"1": {
+			"gameloop": 1457,
+			"resource_collection_rate": {
+				"minerals": 755,
+				"gas": 0
+			},
+			"unspent_resources": {
+				"minerals": 30,
+				"gas": 0
+			},
+			"resource_collection_rate_all": 755,
+			"unit": {
+				"SCV": {
+					"type": [
+						"unit",
+						"worker"
+					],
+					"live": 16,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 1,
+					"supply_provided": 0,
+					"mineral_cost": 50,
+					"gas_cost": 0
+				}
+			},
+			"building": {
+				"CommandCenter": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 400,
+					"gas_cost": 0
+				},
+				"SupplyDepotLowered": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				}
+			},
+			"upgrade": [],
+			"current_selection": {
+				"CommandCenter": 2
+			},
+			"workers_active": 16,
+			"workers_killed": 0,
+			"supply": 17,
+			"supply_cap": 23,
+			"supply_block": 10.0,
+			"spm": 33,
+			"army_value": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_lost": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_collected": {
+				"minerals": 1780,
+				"gas": 0
+			},
+			"total_army_value": 0,
+			"total_resources_lost": 0,
+			"total_resouces_collected": 1780,
+			"race": {}
+		},
+		"2": {
+			"gameloop": 1457,
+			"resource_collection_rate": {
+				"minerals": 951,
+				"gas": 0
+			},
+			"unspent_resources": {
+				"minerals": 90,
+				"gas": 0
+			},
+			"resource_collection_rate_all": 951,
+			"unit": {
+				"Larva": {
+					"type": [
+						"unit"
+					],
+					"live": 0,
+					"died": 6,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				},
+				"Drone": {
+					"type": [
+						"unit",
+						"worker"
+					],
+					"live": 17,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 1,
+					"supply_provided": 0,
+					"mineral_cost": 50,
+					"gas_cost": 0
+				},
+				"Overlord": {
+					"type": [
+						"unit"
+					],
+					"live": 2,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 100,
+					"gas_cost": 0
+				},
+				"Egg": {
+					"type": [
+						"unit"
+					],
+					"live": 2,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				}
+			},
+			"building": {
+				"Hatchery": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 300,
+					"gas_cost": 0
+				}
+			},
+			"upgrade": [],
+			"current_selection": {
+				"Egg": 1
+			},
+			"workers_active": 17,
+			"workers_killed": 0,
+			"supply": 18,
+			"supply_cap": 22,
+			"supply_block": 10.0,
+			"spm": 1,
+			"army_value": {
+				"minerals": 200,
+				"gas": 0
+			},
+			"resources_lost": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_collected": {
+				"minerals": 1890,
+				"gas": 0
+			},
+			"total_army_value": 200,
+			"total_resources_lost": 0,
+			"total_resouces_collected": 1890,
+			"race": {
+				"creep": {
+					"coverage": [
+						0.016,
+						541
+					],
+					"tumors": 0
+				}
+			}
+		}
+	},
+	{
+		"1": {
+			"gameloop": 1572,
+			"resource_collection_rate": {
+				"minerals": 755,
+				"gas": 0
+			},
+			"unspent_resources": {
+				"minerals": 30,
+				"gas": 0
+			},
+			"resource_collection_rate_all": 755,
+			"unit": {
+				"SCV": {
+					"type": [
+						"unit",
+						"worker"
+					],
+					"live": 16,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 1,
+					"supply_provided": 0,
+					"mineral_cost": 50,
+					"gas_cost": 0
+				}
+			},
+			"building": {
+				"CommandCenter": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 400,
+					"gas_cost": 0
+				},
+				"SupplyDepotLowered": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				}
+			},
+			"upgrade": [],
+			"current_selection": {
+				"CommandCenter": 2
+			},
+			"workers_active": 16,
+			"workers_killed": 0,
+			"supply": 17,
+			"supply_cap": 23,
+			"supply_block": 10.0,
+			"spm": 34,
+			"army_value": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_lost": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_collected": {
+				"minerals": 1780,
+				"gas": 0
+			},
+			"total_army_value": 0,
+			"total_resources_lost": 0,
+			"total_resouces_collected": 1780,
+			"race": {}
+		},
+		"2": {
+			"gameloop": 1572,
+			"resource_collection_rate": {
+				"minerals": 951,
+				"gas": 0
+			},
+			"unspent_resources": {
+				"minerals": 90,
+				"gas": 0
+			},
+			"resource_collection_rate_all": 951,
+			"unit": {
+				"Larva": {
+					"type": [
+						"unit"
+					],
+					"live": 1,
+					"died": 7,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				},
+				"Drone": {
+					"type": [
+						"unit",
+						"worker"
+					],
+					"live": 18,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 1,
+					"supply_provided": 0,
+					"mineral_cost": 50,
+					"gas_cost": 0
+				},
+				"Overlord": {
+					"type": [
+						"unit"
+					],
+					"live": 2,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 100,
+					"gas_cost": 0
+				},
+				"Egg": {
+					"type": [
+						"unit"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				}
+			},
+			"building": {
+				"Hatchery": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 300,
+					"gas_cost": 0
+				},
+				"Extractor": {
+					"type": [
+						"building"
+					],
+					"live": 0,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 25,
+					"gas_cost": 0
+				}
+			},
+			"upgrade": [],
+			"current_selection": {
+				"Egg": 1
+			},
+			"workers_active": 18,
+			"workers_killed": 0,
+			"supply": 18,
+			"supply_cap": 22,
+			"supply_block": 10.0,
+			"spm": 0,
+			"army_value": {
+				"minerals": 200,
+				"gas": 0
+			},
+			"resources_lost": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_collected": {
+				"minerals": 1890,
+				"gas": 0
+			},
+			"total_army_value": 200,
+			"total_resources_lost": 0,
+			"total_resouces_collected": 1890,
+			"race": {
+				"creep": {
+					"coverage": [
+						0.016,
+						541
+					],
+					"tumors": 0
+				}
+			}
+		}
+	},
+	{
+		"1": {
+			"gameloop": 1683,
+			"resource_collection_rate": {
+				"minerals": 755,
+				"gas": 0
+			},
+			"unspent_resources": {
+				"minerals": 75,
+				"gas": 0
+			},
+			"resource_collection_rate_all": 755,
+			"unit": {
+				"SCV": {
+					"type": [
+						"unit",
+						"worker"
+					],
+					"live": 17,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 1,
+					"supply_provided": 0,
+					"mineral_cost": 50,
+					"gas_cost": 0
+				}
+			},
+			"building": {
+				"CommandCenter": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 400,
+					"gas_cost": 0
+				},
+				"SupplyDepotLowered": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				}
+			},
+			"upgrade": [],
+			"current_selection": {
+				"CommandCenter": 2
+			},
+			"workers_active": 17,
+			"workers_killed": 0,
+			"supply": 17,
+			"supply_cap": 23,
+			"supply_block": 10.0,
+			"spm": 32,
+			"army_value": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_lost": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_collected": {
+				"minerals": 1825,
+				"gas": 0
+			},
+			"total_army_value": 0,
+			"total_resources_lost": 0,
+			"total_resouces_collected": 1825,
+			"race": {}
+		},
+		"2": {
+			"gameloop": 1683,
+			"resource_collection_rate": {
+				"minerals": 923,
+				"gas": 0
+			},
+			"unspent_resources": {
+				"minerals": 170,
+				"gas": 0
+			},
+			"resource_collection_rate_all": 923,
+			"unit": {
+				"Larva": {
+					"type": [
+						"unit"
+					],
+					"live": 1,
+					"died": 8,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				},
+				"Drone": {
+					"type": [
+						"unit",
+						"worker"
+					],
+					"live": 19,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 1,
+					"supply_provided": 0,
+					"mineral_cost": 50,
+					"gas_cost": 0
+				},
+				"Overlord": {
+					"type": [
+						"unit"
+					],
+					"live": 2,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 100,
+					"gas_cost": 0
+				}
+			},
+			"building": {
+				"Hatchery": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 300,
+					"gas_cost": 0
+				},
+				"Extractor": {
+					"type": [
+						"building"
+					],
+					"live": 0,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 25,
+					"gas_cost": 0
+				},
+				"SpawningPool": {
+					"type": [
+						"building"
+					],
+					"live": 0,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 200,
+					"gas_cost": 0
+				}
+			},
+			"upgrade": [],
+			"current_selection": {
+				"Hatchery": 1
+			},
+			"workers_active": 19,
+			"workers_killed": 0,
+			"supply": 17,
+			"supply_cap": 22,
+			"supply_block": 10.0,
+			"spm": 0,
+			"army_value": {
+				"minerals": 200,
+				"gas": 0
+			},
+			"resources_lost": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_collected": {
+				"minerals": 1995,
+				"gas": 0
+			},
+			"total_army_value": 200,
+			"total_resources_lost": 0,
+			"total_resouces_collected": 1995,
+			"race": {
+				"creep": {
+					"coverage": [
+						0.016,
+						541
+					],
+					"tumors": 0
+				}
+			}
+		}
+	},
+	{
+		"1": {
+			"gameloop": 1792,
+			"resource_collection_rate": {
+				"minerals": 783,
+				"gas": 0
+			},
+			"unspent_resources": {
+				"minerals": 180,
+				"gas": 0
+			},
+			"resource_collection_rate_all": 783,
+			"unit": {
+				"SCV": {
+					"type": [
+						"unit",
+						"worker"
+					],
+					"live": 17,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 1,
+					"supply_provided": 0,
+					"mineral_cost": 50,
+					"gas_cost": 0
+				}
+			},
+			"building": {
+				"CommandCenter": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 400,
+					"gas_cost": 0
+				},
+				"SupplyDepotLowered": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				}
+			},
+			"upgrade": [],
+			"current_selection": {
+				"CommandCenter": 2
+			},
+			"workers_active": 17,
+			"workers_killed": 0,
+			"supply": 18,
+			"supply_cap": 23,
+			"supply_block": 10.0,
+			"spm": 31,
+			"army_value": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_lost": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_collected": {
+				"minerals": 1980,
+				"gas": 0
+			},
+			"total_army_value": 0,
+			"total_resources_lost": 0,
+			"total_resouces_collected": 1980,
+			"race": {}
+		},
+		"2": {
+			"gameloop": 1792,
+			"resource_collection_rate": {
+				"minerals": 923,
+				"gas": 0
+			},
+			"unspent_resources": {
+				"minerals": 35,
+				"gas": 0
+			},
+			"resource_collection_rate_all": 923,
+			"unit": {
+				"Larva": {
+					"type": [
+						"unit"
+					],
+					"live": 0,
+					"died": 8,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				},
+				"Drone": {
+					"type": [
+						"unit",
+						"worker"
+					],
+					"live": 19,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 1,
+					"supply_provided": 0,
+					"mineral_cost": 50,
+					"gas_cost": 0
+				},
+				"Overlord": {
+					"type": [
+						"unit"
+					],
+					"live": 2,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 100,
+					"gas_cost": 0
+				},
+				"Egg": {
+					"type": [
+						"unit"
+					],
+					"live": 2,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				}
+			},
+			"building": {
+				"Hatchery": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 300,
+					"gas_cost": 0
+				},
+				"Extractor": {
+					"type": [
+						"building"
+					],
+					"live": 0,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 25,
+					"gas_cost": 0
+				},
+				"SpawningPool": {
+					"type": [
+						"building"
+					],
+					"live": 0,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 200,
+					"gas_cost": 0
+				}
+			},
+			"upgrade": [],
+			"current_selection": {
+				"Egg": 1
+			},
+			"workers_active": 19,
+			"workers_killed": 0,
+			"supply": 17,
+			"supply_cap": 22,
+			"supply_block": 10.0,
+			"spm": 0,
+			"army_value": {
+				"minerals": 200,
+				"gas": 0
+			},
+			"resources_lost": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_collected": {
+				"minerals": 2110,
+				"gas": 0
+			},
+			"total_army_value": 200,
+			"total_resources_lost": 0,
+			"total_resouces_collected": 2110,
+			"race": {
+				"creep": {
+					"coverage": [
+						0.016,
+						541
+					],
+					"tumors": 0
+				}
+			}
+		}
+	},
+	{
+		"1": {
+			"gameloop": 1908,
+			"resource_collection_rate": {
+				"minerals": 783,
+				"gas": 0
+			},
+			"unspent_resources": {
+				"minerals": 180,
+				"gas": 0
+			},
+			"resource_collection_rate_all": 783,
+			"unit": {
+				"SCV": {
+					"type": [
+						"unit",
+						"worker"
+					],
+					"live": 17,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 1,
+					"supply_provided": 0,
+					"mineral_cost": 50,
+					"gas_cost": 0
+				}
+			},
+			"building": {
+				"CommandCenter": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 400,
+					"gas_cost": 0
+				},
+				"SupplyDepotLowered": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				},
+				"Barracks": {
+					"type": [
+						"building"
+					],
+					"live": 0,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 150,
+					"gas_cost": 0
+				}
+			},
+			"upgrade": [],
+			"current_selection": {
+				"SCV": 15
+			},
+			"workers_active": 17,
+			"workers_killed": 0,
+			"supply": 18,
+			"supply_cap": 23,
+			"supply_block": 10.0,
+			"spm": 32,
+			"army_value": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_lost": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_collected": {
+				"minerals": 1980,
+				"gas": 0
+			},
+			"total_army_value": 0,
+			"total_resources_lost": 0,
+			"total_resouces_collected": 1980,
+			"race": {}
+		},
+		"2": {
+			"gameloop": 1908,
+			"resource_collection_rate": {
+				"minerals": 923,
+				"gas": 0
+			},
+			"unspent_resources": {
+				"minerals": 35,
+				"gas": 0
+			},
+			"resource_collection_rate_all": 923,
+			"unit": {
+				"Larva": {
+					"type": [
+						"unit"
+					],
+					"live": 0,
+					"died": 8,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				},
+				"Drone": {
+					"type": [
+						"unit",
+						"worker"
+					],
+					"live": 19,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 1,
+					"supply_provided": 0,
+					"mineral_cost": 50,
+					"gas_cost": 0
+				},
+				"Overlord": {
+					"type": [
+						"unit"
+					],
+					"live": 2,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 100,
+					"gas_cost": 0
+				},
+				"Egg": {
+					"type": [
+						"unit"
+					],
+					"live": 2,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				}
+			},
+			"building": {
+				"Hatchery": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 300,
+					"gas_cost": 0
+				},
+				"Extractor": {
+					"type": [
+						"building"
+					],
+					"live": 0,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 25,
+					"gas_cost": 0
+				},
+				"SpawningPool": {
+					"type": [
+						"building"
+					],
+					"live": 0,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 200,
+					"gas_cost": 0
+				}
+			},
+			"upgrade": [],
+			"current_selection": {
+				"Hatchery": 1
+			},
+			"workers_active": 19,
+			"workers_killed": 0,
+			"supply": 17,
+			"supply_cap": 22,
+			"supply_block": 10.0,
+			"spm": 0,
+			"army_value": {
+				"minerals": 200,
+				"gas": 0
+			},
+			"resources_lost": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_collected": {
+				"minerals": 2110,
+				"gas": 0
+			},
+			"total_army_value": 200,
+			"total_resources_lost": 0,
+			"total_resouces_collected": 2110,
+			"race": {
+				"creep": {
+					"coverage": [
+						0.016,
+						541
+					],
+					"tumors": 0
+				}
+			}
+		}
+	},
+	{
+		"1": {
+			"gameloop": 2018,
+			"resource_collection_rate": {
+				"minerals": 867,
+				"gas": 0
+			},
+			"unspent_resources": {
+				"minerals": 90,
+				"gas": 0
+			},
+			"resource_collection_rate_all": 867,
+			"unit": {
+				"SCV": {
+					"type": [
+						"unit",
+						"worker"
+					],
+					"live": 18,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 1,
+					"supply_provided": 0,
+					"mineral_cost": 50,
+					"gas_cost": 0
+				}
+			},
+			"building": {
+				"CommandCenter": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 400,
+					"gas_cost": 0
+				},
+				"SupplyDepotLowered": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				},
+				"Barracks": {
+					"type": [
+						"building"
+					],
+					"live": 0,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 150,
+					"gas_cost": 0
+				}
+			},
+			"upgrade": [],
+			"current_selection": {
+				"SCV": 1
+			},
+			"workers_active": 18,
+			"workers_killed": 0,
+			"supply": 18,
+			"supply_cap": 23,
+			"supply_block": 10.0,
+			"spm": 31,
+			"army_value": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_lost": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_collected": {
+				"minerals": 2040,
+				"gas": 0
+			},
+			"total_army_value": 0,
+			"total_resources_lost": 0,
+			"total_resouces_collected": 2040,
+			"race": {}
+		},
+		"2": {
+			"gameloop": 2018,
+			"resource_collection_rate": {
+				"minerals": 979,
+				"gas": 0
+			},
+			"unspent_resources": {
+				"minerals": 105,
+				"gas": 0
+			},
+			"resource_collection_rate_all": 979,
+			"unit": {
+				"Larva": {
+					"type": [
+						"unit"
+					],
+					"live": 0,
+					"died": 9,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				},
+				"Drone": {
+					"type": [
+						"unit",
+						"worker"
+					],
+					"live": 20,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 1,
+					"supply_provided": 0,
+					"mineral_cost": 50,
+					"gas_cost": 0
+				},
+				"Overlord": {
+					"type": [
+						"unit"
+					],
+					"live": 2,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 100,
+					"gas_cost": 0
+				},
+				"Egg": {
+					"type": [
+						"unit"
+					],
+					"live": 2,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				}
+			},
+			"building": {
+				"Hatchery": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 300,
+					"gas_cost": 0
+				},
+				"Extractor": {
+					"type": [
+						"building"
+					],
+					"live": 0,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 25,
+					"gas_cost": 0
+				},
+				"SpawningPool": {
+					"type": [
+						"building"
+					],
+					"live": 0,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 200,
+					"gas_cost": 0
+				}
+			},
+			"upgrade": [],
+			"current_selection": {
+				"Hatchery": 1
+			},
+			"workers_active": 20,
+			"workers_killed": 0,
+			"supply": 18,
+			"supply_cap": 22,
+			"supply_block": 10.0,
+			"spm": 0,
+			"army_value": {
+				"minerals": 200,
+				"gas": 0
+			},
+			"resources_lost": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_collected": {
+				"minerals": 2230,
+				"gas": 0
+			},
+			"total_army_value": 200,
+			"total_resources_lost": 0,
+			"total_resouces_collected": 2230,
+			"race": {
+				"creep": {
+					"coverage": [
+						0.016,
+						541
+					],
+					"tumors": 0
+				}
+			}
+		}
+	},
+	{
+		"1": {
+			"gameloop": 2128,
+			"resource_collection_rate": {
+				"minerals": 839,
+				"gas": 0
+			},
+			"unspent_resources": {
+				"minerals": 35,
+				"gas": 0
+			},
+			"resource_collection_rate_all": 839,
+			"unit": {
+				"SCV": {
+					"type": [
+						"unit",
+						"worker"
+					],
+					"live": 18,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 1,
+					"supply_provided": 0,
+					"mineral_cost": 50,
+					"gas_cost": 0
+				}
+			},
+			"building": {
+				"CommandCenter": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 400,
+					"gas_cost": 0
+				},
+				"SupplyDepotLowered": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				},
+				"Barracks": {
+					"type": [
+						"building"
+					],
+					"live": 0,
+					"died": 0,
+					"in_progress": 2,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 150,
+					"gas_cost": 0
+				}
+			},
+			"upgrade": [],
+			"current_selection": {
+				"SCV": 14
+			},
+			"workers_active": 18,
+			"workers_killed": 0,
+			"supply": 19,
+			"supply_cap": 23,
+			"supply_block": 10.0,
+			"spm": 31,
+			"army_value": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_lost": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_collected": {
+				"minerals": 2185,
+				"gas": 0
+			},
+			"total_army_value": 0,
+			"total_resources_lost": 0,
+			"total_resouces_collected": 2185,
+			"race": {}
+		},
+		"2": {
+			"gameloop": 2128,
+			"resource_collection_rate": {
+				"minerals": 923,
+				"gas": 0
+			},
+			"unspent_resources": {
+				"minerals": 150,
+				"gas": 0
+			},
+			"resource_collection_rate_all": 923,
+			"unit": {
+				"Larva": {
+					"type": [
+						"unit"
+					],
+					"live": 0,
+					"died": 10,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				},
+				"Drone": {
+					"type": [
+						"unit",
+						"worker"
+					],
+					"live": 20,
+					"died": 1,
+					"in_progress": 0,
+					"supply": 1,
+					"supply_provided": 0,
+					"mineral_cost": 50,
+					"gas_cost": 0
+				},
+				"Overlord": {
+					"type": [
+						"unit"
+					],
+					"live": 2,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 100,
+					"gas_cost": 0
+				},
+				"Egg": {
+					"type": [
+						"unit"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 0,
+					"gas_cost": 0
+				}
+			},
+			"building": {
+				"Hatchery": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 8,
+					"mineral_cost": 300,
+					"gas_cost": 0
+				},
+				"Extractor": {
+					"type": [
+						"building"
+					],
+					"live": 1,
+					"died": 0,
+					"in_progress": 0,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 25,
+					"gas_cost": 0
+				},
+				"SpawningPool": {
+					"type": [
+						"building"
+					],
+					"live": 0,
+					"died": 0,
+					"in_progress": 1,
+					"supply": 0,
+					"supply_provided": 0,
+					"mineral_cost": 200,
+					"gas_cost": 0
+				}
+			},
+			"upgrade": [],
+			"current_selection": {
+				"Hatchery": 1
+			},
+			"workers_active": 20,
+			"workers_killed": 1,
+			"supply": 19,
+			"supply_cap": 22,
+			"supply_block": 10.0,
+			"spm": 0,
+			"army_value": {
+				"minerals": 200,
+				"gas": 0
+			},
+			"resources_lost": {
+				"minerals": 0,
+				"gas": 0
+			},
+			"resources_collected": {
+				"minerals": 2325,
+				"gas": 0
+			},
+			"total_army_value": 200,
+			"total_resources_lost": 0,
+			"total_resouces_collected": 2325,
+			"race": {
+				"creep": {
+					"coverage": [
+						0.016,
+						541
+					],
+					"tumors": 0
+				}
+			}
+		}
+	}
+]
