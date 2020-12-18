@@ -11,7 +11,7 @@ class SC2ReplayData_Extractor:
 	def __init__(self, replayFilePath, player_to_analyze_name):
 
 		self.replayHeader, self.protocol = self.build_replay(replayFilePath)
-		game_events = self.protocol.decode_replay_game_events(self.gameInfo)
+		game_events = self.protocol.decode_replay_game_events(self.game_events)
 		tracker_events = self.protocol.decode_replay_tracker_events(self.contents)
 
 		player_info = self.protocol.decode_replay_details(self.details)
@@ -31,7 +31,7 @@ class SC2ReplayData_Extractor:
 
 		self.contents = self.archive.read_file('replay.tracker.events')
 		self.details = self.archive.read_file('replay.details')
-		self.gameInfo = self.archive.read_file('replay.game.events')
+		self.game_events = self.archive.read_file('replay.game.events')
 		self.init_data = self.archive.read_file('replay.initDaa')
 
 		self.metadata = json.loads(
@@ -40,9 +40,10 @@ class SC2ReplayData_Extractor:
 		try:
 			return (replay, versions.build(base_build))
 		except Exception as e:
-			return (replay, None)
+			raise Exception('Unsupported base build: {0} ({1!s})'.format(base_build, e))
 
-	#TODO
+	# TODO
+
 	def get_my_id(self, myName, player_info):
 		player_1_name, player_2_name = self.get_player_names(player_info)
 
@@ -64,26 +65,26 @@ class SC2ReplayData_Extractor:
 		return (e1['m_unitTagIndex'], e1['m_unitTagRecycle'])
 
 	# def filter_by_tagIndex(self, e1, tagIndex):
-	#RELP
+	# RELP
 	def get_my_command_centers_tags(self):
 		myCommandCentersInit = self.get_command_centers_created()
 		myCommandCenterTags = list(map(self.map_unitTag_tuple, myCommandCentersInit))
 
 		return myCommandCenterTags
 
-	def filter_by_tags_old(self, tags, eventsList):
-		rslt = [event for event in eventsList
-                    if((event['m_unitTagIndex'], event['m_unitTagRecycle']) in tags)]
-		return rslt
-
 	def filter_by_tags(self, tags, eventsList):
 		rslt = [event for event in eventsList
-                    if("("+str(event['m_unitTagIndex'])+", "+str(event['m_unitTagRecycle'])+")" in tags)]
+                    if(event['m_unitTagIndex'] == tags[0] and event['m_unitTagRecycle'] == tags[1])]
+		return rslt
+
+	def filter_by_tags_new(self, tags, eventsList):
+		rslt = [event for event in eventsList
+				if("("+str(event['m_unitTagIndex'])+", "+str(event['m_unitTagRecycle'])+")" in tags)]
 		return rslt
 
 	def filter_by_creatorTags(self, creatorTags, eventsList):
 		rslt = [event for event in eventsList
-                    if(event['m_creatorUnitTagIndex'] == creatorTags[0] and event['m_creatorUnitTagRecycle'] == creatorTags[1])]
+				if(event['m_creatorUnitTagIndex'] == creatorTags[0] and event['m_creatorUnitTagRecycle'] == creatorTags[1])]
 		return rslt
 
 	def get_command_centers_production_queue(self):
@@ -116,7 +117,13 @@ class SC2ReplayData_Extractor:
 		return list(rslt)
 
 	def get_orbitals_created(self):
-		rslt = filter(self.filter_SUnitChangeType_MyOrbitals, self.get_replay_tracker_events())
+		tmp = filter(self.filter_SUnitChangeType_MyOrbitals, self.get_replay_tracker_events())
+
+		rslt = []
+		for event in tmp:
+			event['m_creatorUnitTagIndex'] = event['m_unitTagIndex']
+			event['m_creatorUnitTagRecycle'] = event['m_unitTagRecycle']
+			rslt.append(event)
 
 		return list(rslt)
 
@@ -133,30 +140,30 @@ class SC2ReplayData_Extractor:
 
 	def filter_MyCC_UnitInit(self, e1):
 		return ((e1["_event"] == 'NNet.Replay.Tracker.SUnitInitEvent'
-                    or e1["_event"] == 'NNet.Replay.Tracker.SUnitBornEvent')
-                    and
-                    e1["m_controlPlayerId"] == self.myId and
-                    e1['m_unitTypeName'] == b'CommandCenter')
+				 or e1["_event"] == 'NNet.Replay.Tracker.SUnitBornEvent')
+				and
+				e1["m_controlPlayerId"] == self.myId and
+				e1['m_unitTypeName'] == b'CommandCenter')
 
 	def filter_SUnitChangeType_MyOrbitals(self, e1):
 		return (e1["_event"] == 'NNet.Replay.Tracker.SUnitTypeChangeEvent' and
-                    e1['_gameloop'] != 0 and
-                    e1['m_unitTypeName'] == b'OrbitalCommand')
+				e1['_gameloop'] != 0 and
+				e1['m_unitTypeName'] == b'OrbitalCommand')
 
 	def filter_SCVBornEvent(self, e1):
 		return (e1["_event"] == 'NNet.Replay.Tracker.SUnitBornEvent' and
-                    e1["m_controlPlayerId"] == self.myId and
-                    e1['m_unitTypeName'] == b'SCV' and
-                    e1['_gameloop'] != 0)
+				e1["m_controlPlayerId"] == self.myId and
+				e1['m_unitTypeName'] == b'SCV' and
+				e1['_gameloop'] != 0)
 
 	def filter_SUnitInit_Mine(self, e1):
 		return (e1["_event"] == 'NNet.Replay.Tracker.SUnitInitEvent' and
-                    e1["m_controlPlayerId"] == self.myId and
-                    e1['_gameloop'] != 0)
+				e1["m_controlPlayerId"] == self.myId and
+				e1['_gameloop'] != 0)
 
 	def filter_SUnitsDoneEvent(self, e1):
 		return (e1["_event"] == 'NNet.Replay.Tracker.SUnitDoneEvent' and
-                    e1['_gameloop'] != 0)
+				e1['_gameloop'] != 0)
 
 	def gameloopToMinutes(self, gameloop):
 		parteDecimale = round(gameloop / gameLoopsInOneSecond % 60 * 0.01, 2)
