@@ -16,7 +16,7 @@ from zephyrus_sc2_parser import parse_replay
 import os
 import glob
 import os
-from SC2Sensei import SC2AnalizedReplay
+from SC2AnalyzedReplay import SC2AnalyzedReplay
 from replayfetcher import get_latest_replay_file_path
 reduce = functools.reduce
 
@@ -24,6 +24,20 @@ dbg_file_name = "logs/Dbg3.txt"
 replay_folder_path = "C:/Users/King Pub/Documents/StarCraft II/Accounts/112520872/2-S2-1-543752/Replays/Multiplayer/*"
 player_to_analyze_name = "GengisKhan"
 # -----------------------------------------------------------------------------
+
+
+def create_dbg_file(gamedata, printToConsole=True):
+    f = open(dbg_file_name, "w")
+    for event in gamedata:
+        f.write(str(event))
+        f.write('\n')
+        if(printToConsole):
+            print(str(event))
+            print('\n')
+
+    f.close()
+    print('Created file '+dbg_file_name)
+
 
 if __name__ == "__main__":
 
@@ -33,12 +47,14 @@ if __name__ == "__main__":
     print(replay_file_path)
 
     writeToFile = True
-    
+
     replay_data_extractor = SC2ReplayData_Extractor(replay_file_path, player_to_analyze_name)
-    output = SC2AnalizedReplay(replay_data_extractor)
+    analized_replay = SC2AnalyzedReplay(replay_data_extractor)
     # Make Json: Start, End, Name
 
-    output.get_command_center_timelines()
+    cc_timelines = analized_replay.get_command_center_timelines()
+    create_dbg_file(cc_timelines[0])
+    pass
     # Use the ReplayExtractor to get a List of CommandCenter Objects
 
     # Using this list, build the arrays neede to draw the graph
@@ -77,16 +93,4 @@ if __name__ == "__main__":
     # exit
 
 
-#---------------------- main() END ------------------------------------------------------------------
-
-def create_dbg_file(gamedata, printToConsole=True):
-    f = open(dbg_file_name, "w")
-    for event in gamedata:
-        f.write(str(event))
-        f.write('\n')
-        if(printToConsole):
-            print(str(event))
-            print('\n')
-
-    f.close()
-    print('Created file '+dbg_file_name)
+# ---------------------- main() END ------------------------------------------------------------------

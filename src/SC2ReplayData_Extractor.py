@@ -74,8 +74,12 @@ class SC2ReplayData_Extractor:
 
 	def filter_by_tags(self, tags, eventsList):
 		rslt = [event for event in eventsList
-                    if(event['m_unitTagIndex'] == tags[0] and event['m_unitTagRecycle'] == tags[1])]
+                    if((event['m_unitTagIndex'] == tags[0] and event['m_unitTagRecycle'] == tags[1])
+                        or (event['m_creatorUnitTagIndex'] == tags[0] and event['m_creatorUnitTagRecycle'] == tags[1])
+                       )]
 		return rslt
+
+
 
 	def filter_by_tags_new(self, tags, eventsList):
 		rslt = [event for event in eventsList
