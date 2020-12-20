@@ -1,2 +1,5 @@
 ﻿__pycache__
 .vscode/settings.json
+docker_wordpress_localhost/html/wp-admin
+docker_wordpress_localhost/html/wp-includes
+docker_wordpress_localhost/html/wp-content/plugins/akismet
