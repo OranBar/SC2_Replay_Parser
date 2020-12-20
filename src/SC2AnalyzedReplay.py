@@ -13,7 +13,7 @@ class SC2AnalyzedReplay:
 	def __init__(self, data_extractor):
 		self.data_extractor = data_extractor
 
-	def get_command_center_timelines(self):
+	def get_command_centers_timelines(self):
 		rslt = []
 		global_timeline = []
 
@@ -26,49 +26,60 @@ class SC2AnalyzedReplay:
 		zero_event['_event'] = 'Zero Event'
 
 		global_timeline = heapq.merge(orbitals_finish_events, scv_finish_events, key=lambda x: x['_gameloop'])
-		# global_timeline = sorted(global_timeline, key=lambda x:  x['_gameloop'])
+		global_timeline = sorted(global_timeline, key=lambda x:  x['_gameloop'])
+
+		cc_index = 0
 
 		for cc_tag in self.data_extractor.get_my_command_centers_tags():
+			cc_index = cc_index + 1 
+			cc_name = "CC " + str(cc_index)
+
 			cc_timeline = self.data_extractor.filter_by_tags(cc_tag, global_timeline)
 			cc_timeline.insert(0, zero_event)
+			# cc_timeline = sorted(cc_timeline, key=lambda x:  x['_gameloop'])
 
 			# Now we gotta insert the "Start/Begin" events, since starcraft only registers "End/Finish" events
-			begin_events_to_add = []
+			events = []
 			for event in cc_timeline:
 				if(event['_event'] == 'NNet.Replay.Tracker.SUnitBornEvent'):
 					if(event['m_unitTypeName'] == b'SCV'):
-						scv_born_event = self.create_scv_born_event(event['_gameloop'], event['m_unitTypeName'])
-						begin_events_to_add.append(scv_born_event)
+						scv_created_event = self.create_scv_created_event(event['_gameloop'], event['m_unitTypeName'], cc_name)
+						events.append(scv_created_event)
 
 				elif(event['_event'] == 'NNet.Replay.Tracker.SUnitTypeChangeEvent'):
 					if(event['m_unitTypeName'] == b'OrbitalCommand'):
-						orbital_end_event = self.create_orbital_event(event['_gameloop'], event['m_unitTypeName'])
-						begin_events_to_add.append(orbital_end_event)
+						orbital_created_event = self.create_orbital_event(event['_gameloop'], event['m_unitTypeName'], cc_name)
+						events.append(orbital_created_event)
 			
 					# if(event['m_unitTypeName'] == b'PlanetaryFortress'):
 					# 	orbital_begin_event = self.create_orbital_event()
 					# 	begin_events_to_add.append(orbital_begin_event)
 			
-			tmp = heapq.merge(begin_events_to_add, cc_timeline, key=lambda x: x['_gameloop'])
-			cc_timeline = sorted(tmp, key=lambda x:  x['_gameloop'])
-			rslt.append(cc_timeline)
+			# tmp = heapq.merge(events, cc_timeline, key=lambda x: x['end_time'])
+			# cc_timeline = sorted(tmp, key=lambda x:  x['end_time'])
+			rslt.append(events)
 
 		return rslt
 
-	def create_scv_born_event(self, scv_complete_gameloop, unit_type):
-		unit_born_event = {}
-		unit_born_event['_event'] = 'SC2.Python.Analyzer.UnitBeginEvent'
+	def create_scv_created_event(self, scv_complete_gameloop, unit_type, cc_name):
+		unit_created_event = {}
+		unit_created_event['_event'] = str(unit_type, 'utf-8') + ' Created'
 
-		unit_born_event['_gameloop'] = scv_complete_gameloop - SCV_BUILD_TIME * 22.4
-		unit_born_event['time'] = self.data_extractor.gameloopToSeconds(unit_born_event['_gameloop'])
-		unit_born_event['type'] = unit_type
-		return unit_born_event
+		scv_start_gameloop = scv_complete_gameloop - SCV_BUILD_TIME * 22.4
+		unit_created_event["start_time"] = self.data_extractor.gameloopToSeconds(scv_start_gameloop)
+		unit_created_event['end_time'] = self.data_extractor.gameloopToSeconds(scv_complete_gameloop)
+		# unit_created_event['type'] = unit_type
+		unit_created_event['building_name'] = cc_name
 
-	def create_orbital_event(self, orbital_complete_gameloop, unit_type):
-		orbital_start_event = {}
-		orbital_start_event['_event'] = 'SC2.Python.Analyzer.UpgradeBeginEvent'
+		return unit_created_event
 
-		orbital_start_event['_gameloop'] = orbital_complete_gameloop - ORBITAL_BUILD_TIME * 22.4
-		orbital_start_event['time'] = self.data_extractor.gameloopToSeconds(orbital_start_event['_gameloop'])
-		orbital_start_event['type'] = unit_type
-		return orbital_start_event
+	def create_orbital_event(self, orbital_complete_gameloop, unit_type, cc_name):
+		orbital_complete_event = {}
+		orbital_complete_event['_event'] = str(unit_type, 'utf-8') + ' Researched'
+
+		orbital_start_gameloop = orbital_complete_gameloop - ORBITAL_BUILD_TIME * 22.4
+		orbital_complete_event["start_time"] = self.data_extractor.gameloopToSeconds(orbital_start_gameloop)
+		orbital_complete_event['end_time'] = self.data_extractor.gameloopToSeconds(orbital_complete_gameloop)
+		# orbital_complete_event['type'] = unit_type
+		orbital_complete_event['building_name'] = cc_name
+		return orbital_complete_event

@@ -52,13 +52,8 @@ if __name__ == "__main__":
 	analized_replay = SC2AnalyzedReplay(replay_data_extractor)
 	# Make Json: Start, End, Name
 
-	cc_timelines = analized_replay.get_command_center_timelines()
-	for curr_cc_timeline in cc_timelines:
-		
-		for event in curr_cc_timeline:
-
-
-	create_dbg_file(cc_timelines[0])
+	cc_timelines = analized_replay.get_command_centers_timelines()
+	create_dbg_file(cc_timelines[1])
 	pass
 	# Use the ReplayExtractor to get a List of CommandCenter Objects
 
