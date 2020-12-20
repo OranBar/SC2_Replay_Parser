@@ -113,9 +113,15 @@ function create_replays_table(){
 	if(table_doesnt_exist($table_name)){
 
 		$sql = "CREATE TABLE $table_name (
-			replay_index INT NOT NULL AUTO_INCREMENT,
+			replay_id INT NOT NULL AUTO_INCREMENT,
+			replay_name VARCHAR(50),
 			upload_time DATETIME NOT null,
 			owner_user_id INT,
+			player_1 VARCHAR(50),
+			player_2 VARCHAR(50),
+			player_1_has_won BOOLEAN,
+			game_length INT,
+			matchup VARCHAR(6),
 			
 			PRIMARY KEY( replay_index )
 
@@ -136,7 +142,7 @@ function create_replay_macro_timelines_table()
 	if (table_doesnt_exist($table_name)) {
 
 		$sql = "CREATE TABLE $table_name (
-			replay_index INT NOT NULL AUTO_INCREMENT,
+			replay_id INT NOT NULL AUTO_INCREMENT,
 			event_name VARCHAR(70) NOT NULL ,
 			start_time_seconds INT NOT NULL ,
 			end_time_seconds INT NOT NULL ,
@@ -155,14 +161,80 @@ function create_replay_macro_timelines_table()
 function upload_analyzed_replay()
 {
 	global $wpdb;
-	$table_name = add_prefixes('replay_macro_timelines');
+	$table_name = add_prefixes('replay_timeline_events');
 	if(isset($_POST)){
 		$post_data = json_decode(stripcslashes($_POST['data']));
+		$timeline_events = $post_data['events'];
+		$replay_info = $post_data['replay_info'];
+		
+		$errors = false;
+		
+		$replay_id = insert_new_replay($replay_info);
+		foreach($timeline_events as $event_data){
 
+			$insert_successful = insert_replay_timeline_event($replay_id, $event_data);
+
+			if ($insert_successful == false) {
+				$errors = true;
+				echo "Failed to insert replay timeline event";
+				// print_r();
+			}
+		}
+
+		if ($errors == false) {
+			echo "Success: all replay events inserted";
+		}
 		print_r( json_decode(stripcslashes($_POST['data']))[0]->end_time );
 	} else {
-		echo "Goddamn, I shouldn't be here! I'm ufficially lost....";
+		echo "Where's my post data? Gimme something bro, I can't work with thin air!";
 	}
+}
+
+function insert_new_replay($replay_info){
+	global $wpdb;
+	$table_name = add_prefixes('replay_timeline_events');
+	$current_time = current_time('mysql', 1);
+
+	// {'event': 'SCV Created', 'start_time': 492, 'end_time': 504, 'building_name': 'CC 2'}
+	$data = array(
+		'upload_time' => $current_time,
+		'owner_user_id' => get_current_user_id(),
+		'player_1_name' => $replay_info->players_names[0] ,
+		'player_2_name' => $replay_info->players_names[1] ,
+		'player_1_has_won' => $replay_info->winner_player_id == 1,
+		'game_length' => $replay_info->game_length ,
+		'winner_player_id' => $replay_info->winner_player_id ,
+		'looser_player_id' => $replay_info->looser_player_id ,
+		'matchup' => $replay_info->matchup 
+	);
+
+	$success = $wpdb->insert($table_name, $data);	
+	
+	if($success == false){
+		return -1;
+	} else {
+		$replay_id = $wpdb->insert_id;
+		return $replay_id;
+	} 
+	
+}
+
+function insert_replay_timeline_event($replay_id, $event_data){
+	global $wpdb;
+	$table_name = add_prefixes('replay_timeline_events');
+
+	// {'event': 'SCV Created', 'start_time': 492, 'end_time': 504, 'building_name': 'CC 2'}
+	$data = array(
+		'replay_id' => $replay_id,
+		'event_name' => $event_data->event,
+		'start_time_seconds' => $event_data->start_time,
+		'end_time_seconds' => $event_data->end_time,
+		'building_name' => $event_data->building_name
+	);
+
+	$success = $wpdb->insert($table_name, $data);
+	
+	return $success;
 }
 
 function add_replay_macro_timelines(){

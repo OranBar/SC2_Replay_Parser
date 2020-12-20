@@ -6,18 +6,26 @@ import math
 
 gameLoopsInOneSecond = 22.4
 
-
 class SC2ReplayData_Extractor:
 
 	def __init__(self, replayFilePath, player_to_analyze_name):
 
 		self.replayHeader, self.protocol = self.build_replay(replayFilePath)
+		for p in self.metadata['Players']:
+			if p['Result'] == 'Win':
+				self.winner_player_id = p['PlayerID']
+				self.winner_race = p['AssignedRace']
+			else:
+				self.looser_player_id = p['PlayerID']
+				self.looser_race = p['AssignedRace']
+
+
 		game_events = self.protocol.decode_replay_game_events(self.game_events)
 		tracker_events = self.protocol.decode_replay_tracker_events(self.contents)
 
-		player_info = self.protocol.decode_replay_details(self.details)
+		self.player_info = self.protocol.decode_replay_details(self.details)
 		# detailed_info = self.protocol.decode_replay_initdata(self.init_data)
-		self.myId = self.get_my_id(player_to_analyze_name, player_info)
+		self.myId = self.get_my_id(player_to_analyze_name)
 
 		self.game_events = list(map(
 			self.map_add_time_to_events, game_events))
@@ -33,7 +41,7 @@ class SC2ReplayData_Extractor:
 		self.contents = self.archive.read_file('replay.tracker.events')
 		self.details = self.archive.read_file('replay.details')
 		self.game_events = self.archive.read_file('replay.game.events')
-		self.init_data = self.archive.read_file('replay.initDaa')
+		self.init_data = self.archive.read_file('replay.initData')
 
 		self.metadata = json.loads(
 			self.archive.read_file('replay.gamemetadata.json'))
@@ -45,8 +53,8 @@ class SC2ReplayData_Extractor:
 
 	# TODO
 
-	def get_my_id(self, myName, player_info):
-		player_1_name, player_2_name = self.get_player_names(player_info)
+	def get_my_id(self, myName):
+		player_1_name, player_2_name = self.get_player_names()
 
 		if myName in player_1_name:
 			return 1
@@ -55,12 +63,42 @@ class SC2ReplayData_Extractor:
 		else:
 			raise Exception("Player Not Found")
 
-	def get_player_names(self, player_info):
+	def get_player_names(self):
 		player_names = []
-		for player in player_info['m_playerList']:
+		for player in self.player_info['m_playerList']:
 			player_names.append(player['m_name'])
 
 		return (str(player_names[0]), str(player_names[1]))
+
+	def get_winner_player_id(self):
+		return self.winner_player_id
+
+	def get_looser_player_id(self):
+		return self.looser_player_id
+
+	def get_matchup(self):
+		players = self.metadata['Players']
+
+		p1_race = 'r' if players[0]['SelectedRace'] == 'Rand' else ''
+		p2_race = 'r' if players[1]['SelectedRace'] == 'Rand' else ''
+
+		p1_race = p1_race + players[0]['AssignedRace']
+		p2_race = p2_race + players[1]['AssignedRace']
+		return p1_race+"vs"+p2_race
+
+	def get_map_name(self):
+		return self.metadata['Title']
+
+	def get_game_version(self):
+		return self.metadata['GameVersion']
+
+	def get_game_length(self):
+		return self.metadata['Duration']
+
+	def get_player_race(self, player_id):
+		for p in self.metadata['Players']:
+			if p['PlayerID'] == player_id:
+				return p['AssignedRace']
 
 	def map_unitTag_tuple(self, e1):
 		return (e1['m_unitTagIndex'], e1['m_unitTagRecycle'])

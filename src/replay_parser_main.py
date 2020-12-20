@@ -48,8 +48,17 @@ if __name__ == "__main__":
 	url = rest_api_url
 	replay_file_path = get_latest_replay_file_path()
 	print(replay_file_path)
+
 	
 	replay_data_extractor = SC2ReplayData_Extractor(replay_file_path, player_to_analyze_name)
+	replay_info = {}
+	replay_info['players_names'] = replay_data_extractor.get_player_names()
+	replay_info['winner_player_id'] = replay_data_extractor.get_winner_player_id()
+	replay_info['game_length'] = replay_data_extractor.get_game_length()
+	replay_info['looser_player_id'] = replay_data_extractor.get_looser_player_id()
+	replay_info['matchup'] = replay_data_extractor.get_matchup()
+
+
 	analized_replay = SC2AnalyzedReplay(replay_data_extractor)
 	
 	cc_timelines = analized_replay.get_command_centers_timelines()
@@ -57,7 +66,9 @@ if __name__ == "__main__":
 	create_dbg_file(cc_timelines)
 	
 	# send stuff to db
-	data_obj = {"data" : json.dumps(cc_timelines) }	
+	data_obj = {"events" : json.dumps(cc_timelines),
+				"replay_info" : json.dumps(replay_info) }	
+
 	response = requests.post(url, data=data_obj)
 	print(response.text)
 
