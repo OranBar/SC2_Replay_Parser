@@ -2,6 +2,7 @@ import mpyq
 import os
 from s2protocol import versions
 import json
+import math
 
 gameLoopsInOneSecond = 22.4
 
@@ -170,9 +171,11 @@ class SC2ReplayData_Extractor:
 				e1['_gameloop'] != 0)
 
 	def gameloopToMinutes(self, gameloop):
-		parteDecimale = round(gameloop / gameLoopsInOneSecond % 60 * 0.01, 2)
+		parteDecimale = round(int(gameloop / gameLoopsInOneSecond) % 60 * 0.01, 3)
+		
 		minutiGiustiGiusti = int(
 			gameloop / gameLoopsInOneSecond) // 60 + parteDecimale
+		
 		return minutiGiustiGiusti
 
 	def gameloopToSeconds(self, gameloop):
@@ -181,5 +184,5 @@ class SC2ReplayData_Extractor:
 		return seconds
 
 	def map_add_time_to_events(self, e):
-		e['time'] = self.gameloopToMinutes(e['_gameloop'])
+		e['time'] = self.gameloopToSeconds(e['_gameloop'])
 		return e

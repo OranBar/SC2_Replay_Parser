@@ -27,70 +27,75 @@ player_to_analyze_name = "GengisKhan"
 
 
 def create_dbg_file(gamedata, printToConsole=True):
-    f = open(dbg_file_name, "w")
-    for event in gamedata:
-        f.write(str(event))
-        f.write('\n')
-        if(printToConsole):
-            print(str(event))
-            print('\n')
+	f = open(dbg_file_name, "w")
+	for event in gamedata:
+		f.write(str(event))
+		f.write('\n')
+		if(printToConsole):
+			print(str(event))
+			print('\n')
 
-    f.close()
-    print('Created file '+dbg_file_name)
+	f.close()
+	print('Created file '+dbg_file_name)
 
 
 if __name__ == "__main__":
 
-    my_id = 1
-    # replayFilePath = dir_path+"\\mvp.SC2Replay"
-    replay_file_path = get_latest_replay_file_path()
-    print(replay_file_path)
+	my_id = 1
+	# replayFilePath = dir_path+"\\mvp.SC2Replay"
+	replay_file_path = get_latest_replay_file_path()
+	print(replay_file_path)
 
-    writeToFile = True
+	writeToFile = True
+	
+	replay_data_extractor = SC2ReplayData_Extractor(replay_file_path, player_to_analyze_name)
+	analized_replay = SC2AnalyzedReplay(replay_data_extractor)
+	# Make Json: Start, End, Name
 
-    replay_data_extractor = SC2ReplayData_Extractor(replay_file_path, player_to_analyze_name)
-    analized_replay = SC2AnalyzedReplay(replay_data_extractor)
-    # Make Json: Start, End, Name
-
-    cc_timelines = analized_replay.get_command_center_timelines()
-    create_dbg_file(cc_timelines[0])
-    pass
-    # Use the ReplayExtractor to get a List of CommandCenter Objects
-
-    # Using this list, build the arrays neede to draw the graph
-
-    # code = SC2ReplayData_Extractor(replayFilePath, "GengisKhan")
-
-    # scv_idle_per_cc = code.get_command_center_idle_time()
-
-    # print("\nIdle time per cc:\n ")
-    # print(scv_idle_per_cc)
-
-    # scv_idle_total_per_cc = {}
-    # i = 0
-    # plt.figure()
-    # for cc_key, cc_prod in scv_idle_per_cc.items():
-    #     if(i >= 4):
-    #         break
-
-    #     scv_idle_total_per_cc[cc_key] = sum(cc_prod)
-    #     if(len(cc_prod) > 3):
-    #         plt.subplot("22"+str(i+1))
-    #         plt.plot(cc_prod[:-1])
-    #         plt.ylabel('Seconds between SCVs')
-
-    #     i = i+1
-
-    # print("\nTotal idle time per cc:\n ")
-    # print(scv_idle_total_per_cc)
-
-    # print("\nTotal idle time:\n ")
-    # print(int(sum(scv_idle_total_per_cc.values())))
-
-    # print("\n Finish! :D\n\n\n------------------------------------------------------------------------")
-
-    # plt.show()
-    # exit
+	cc_timelines = analized_replay.get_command_center_timelines()
+	for curr_cc_timeline in cc_timelines:
+		
+		for event in curr_cc_timeline:
 
 
-# ---------------------- main() END ------------------------------------------------------------------
+	create_dbg_file(cc_timelines[0])
+	pass
+	# Use the ReplayExtractor to get a List of CommandCenter Objects
+
+	# Using this list, build the arrays neede to draw the graph
+
+	# code = SC2ReplayData_Extractor(replayFilePath, "GengisKhan")
+
+	# scv_idle_per_cc = code.get_command_center_idle_time()
+
+	# print("\nIdle time per cc:\n ")
+	# print(scv_idle_per_cc)
+
+	# scv_idle_total_per_cc = {}
+	# i = 0
+	# plt.figure()
+	# for cc_key, cc_prod in scv_idle_per_cc.items():
+	#     if(i >= 4):
+	#         break
+
+	#     scv_idle_total_per_cc[cc_key] = sum(cc_prod)
+	#     if(len(cc_prod) > 3):
+	#         plt.subplot("22"+str(i+1))
+	#         plt.plot(cc_prod[:-1])
+	#         plt.ylabel('Seconds between SCVs')
+
+	#     i = i+1
+
+	# print("\nTotal idle time per cc:\n ")
+	# print(scv_idle_total_per_cc)
+
+	# print("\nTotal idle time:\n ")
+	# print(int(sum(scv_idle_total_per_cc.values())))
+
+	# print("\n Finish! :D\n\n\n------------------------------------------------------------------------")
+
+	# plt.show()
+	# exit
+
+
+#---------------------- main() END ------------------------------------------------------------------
