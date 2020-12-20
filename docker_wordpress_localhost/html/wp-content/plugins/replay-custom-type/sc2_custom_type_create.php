@@ -159,7 +159,7 @@ function upload_analyzed_replay()
 	if(isset($_POST)){
 		$post_data = json_decode(stripcslashes($_POST['data']));
 
-		print_r( json_decode(stripcslashes($_POST['data']))[0][0]->end_time );
+		print_r( json_decode(stripcslashes($_POST['data']))[0]->end_time );
 	} else {
 		echo "Goddamn, I shouldn't be here! I'm ufficially lost....";
 	}

@@ -45,24 +45,22 @@ def create_dbg_file(gamedata, printToConsole=True):
 
 if __name__ == "__main__":
 
-	my_id = 1
 	url = rest_api_url
-	# replayFilePath = dir_path+"\\mvp.SC2Replay"
 	replay_file_path = get_latest_replay_file_path()
 	print(replay_file_path)
-
-	writeToFile = True
 	
 	replay_data_extractor = SC2ReplayData_Extractor(replay_file_path, player_to_analyze_name)
 	analized_replay = SC2AnalyzedReplay(replay_data_extractor)
-	# Make Json: Start, End, Name
-
+	
 	cc_timelines = analized_replay.get_command_centers_timelines()
-	create_dbg_file(cc_timelines[1])
-	#TODO: send stuff to db
+	cc_timelines = [item for sublist in cc_timelines for item in sublist]
+	create_dbg_file(cc_timelines)
+	
+	# send stuff to db
 	data_obj = {"data" : json.dumps(cc_timelines) }	
-	x = requests.post(url, data=data_obj)
-	print(x.text)
+	response = requests.post(url, data=data_obj)
+	print(response.text)
+
 	pass
 	# Use the ReplayExtractor to get a List of CommandCenter Objects
 
