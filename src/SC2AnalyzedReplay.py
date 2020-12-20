@@ -55,15 +55,13 @@ class SC2AnalyzedReplay:
 					# 	orbital_begin_event = self.create_orbital_event()
 					# 	begin_events_to_add.append(orbital_begin_event)
 			
-			# tmp = heapq.merge(events, cc_timeline, key=lambda x: x['end_time'])
-			# cc_timeline = sorted(tmp, key=lambda x:  x['end_time'])
 			rslt.append(events)
 
 		return rslt
 
 	def create_scv_created_event(self, scv_complete_gameloop, unit_type, cc_name):
 		unit_created_event = {}
-		unit_created_event['_event'] = str(unit_type, 'utf-8') + ' Created'
+		unit_created_event['event'] = str(unit_type, 'utf-8') + ' Created'
 
 		scv_start_gameloop = scv_complete_gameloop - SCV_BUILD_TIME * 22.4
 		unit_created_event["start_time"] = self.data_extractor.gameloopToSeconds(scv_start_gameloop)
@@ -75,7 +73,7 @@ class SC2AnalyzedReplay:
 
 	def create_orbital_event(self, orbital_complete_gameloop, unit_type, cc_name):
 		orbital_complete_event = {}
-		orbital_complete_event['_event'] = str(unit_type, 'utf-8') + ' Researched'
+		orbital_complete_event['event'] = str(unit_type, 'utf-8') + ' Researched'
 
 		orbital_start_gameloop = orbital_complete_gameloop - ORBITAL_BUILD_TIME * 22.4
 		orbital_complete_event["start_time"] = self.data_extractor.gameloopToSeconds(orbital_start_gameloop)
