@@ -1,4 +1,4 @@
-{'event': 'OrbitalCommand Researched', 'building_name': 'CC 2', 'start_time': 137, 'end_time': 162}
+{'event': 'OrbitalCommand Researched', 'start_time': 137, 'end_time': 162, 'building_name': 'CC 2'}
 {'event': 'SCV Created', 'start_time': 167, 'end_time': 179, 'building_name': 'CC 2'}
 {'event': 'SCV Created', 'start_time': 193, 'end_time': 205, 'building_name': 'CC 2'}
 {'event': 'SCV Created', 'start_time': 249, 'end_time': 261, 'building_name': 'CC 2'}

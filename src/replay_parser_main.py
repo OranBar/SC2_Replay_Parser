@@ -7,6 +7,8 @@
 #                         ]
 
 from SC2ReplayData_Extractor import SC2ReplayData_Extractor
+import requests
+import json
 import mpyq
 import os
 import functools
@@ -23,6 +25,8 @@ reduce = functools.reduce
 dbg_file_name = "logs/Dbg3.txt"
 replay_folder_path = "C:/Users/King Pub/Documents/StarCraft II/Accounts/112520872/2-S2-1-543752/Replays/Multiplayer/*"
 player_to_analyze_name = "GengisKhan"
+rest_api_url = 'http://localhost:8000/wp-json/sc2_sensei/replays_api/v1/upload_analyzed_replay'
+
 # -----------------------------------------------------------------------------
 
 
@@ -42,6 +46,7 @@ def create_dbg_file(gamedata, printToConsole=True):
 if __name__ == "__main__":
 
 	my_id = 1
+	url = rest_api_url
 	# replayFilePath = dir_path+"\\mvp.SC2Replay"
 	replay_file_path = get_latest_replay_file_path()
 	print(replay_file_path)
@@ -54,6 +59,10 @@ if __name__ == "__main__":
 
 	cc_timelines = analized_replay.get_command_centers_timelines()
 	create_dbg_file(cc_timelines[1])
+	#TODO: send stuff to db
+	myobj = {"key" : json.dumps(cc_timelines) }	
+	x = requests.post(url, data=myobj)
+	print(x.text)
 	pass
 	# Use the ReplayExtractor to get a List of CommandCenter Objects
 
