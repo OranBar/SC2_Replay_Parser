@@ -157,7 +157,9 @@ function upload_analyzed_replay()
 	global $wpdb;
 	$table_name = add_prefixes('replay_macro_timelines');
 	if(isset($_POST)){
-		print_r( json_decode(stripcslashes($_POST['key']))[0][0]->end_time );
+		$post_data = json_decode(stripcslashes($_POST['data']));
+
+		print_r( json_decode(stripcslashes($_POST['data']))[0][0]->end_time );
 	} else {
 		echo "Goddamn, I shouldn't be here! I'm ufficially lost....";
 	}

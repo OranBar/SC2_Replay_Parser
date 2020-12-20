@@ -60,8 +60,8 @@ if __name__ == "__main__":
 	cc_timelines = analized_replay.get_command_centers_timelines()
 	create_dbg_file(cc_timelines[1])
 	#TODO: send stuff to db
-	myobj = {"key" : json.dumps(cc_timelines) }	
-	x = requests.post(url, data=myobj)
+	data_obj = {"data" : json.dumps(cc_timelines) }	
+	x = requests.post(url, data=data_obj)
 	print(x.text)
 	pass
 	# Use the ReplayExtractor to get a List of CommandCenter Objects
