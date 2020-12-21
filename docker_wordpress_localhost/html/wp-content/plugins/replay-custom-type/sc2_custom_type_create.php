@@ -148,13 +148,13 @@ function create_replay_macro_timelines_table()
 
 	$sql = "CREATE TABLE `$table_name` (
 		event_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-		replayID INT NOT NULL, 
+		replay_id INT NOT NULL, 
 		event_name VARCHAR(70) NOT NULL,
 		start_time_seconds INT NOT NULL,
 		end_time_seconds INT NOT NULL,
 		building_name VARCHAR(50) NOT NULL,
 
-		INDEX $table_name" . "_index( replayID, building_name, start_time_seconds )
+		INDEX $table_name" . "_index( replay_id, building_name, start_time_seconds )
 		
 	)    $charset_collate;";
 
@@ -176,20 +176,21 @@ function upload_analyzed_replay()
 		$errors = false;
 		
 		$replay_id = insert_new_replay($replay_info);
-		// foreach($timeline_events as $event_data){
+		foreach($timeline_events as $event_data){
 
-		// 	$insert_successful = insert_replay_timeline_event($replay_id, $event_data);
+			// $insert_successful = insert_replay_timeline_event($replay_id, $timeline_events[0]);
+			$insert_successful = insert_replay_timeline_event($replay_id, $event_data);
 
-		// 	if ($insert_successful == false) {
-		// 		$errors = true;
-		// 		echo "Failed to insert replay timeline event";
-		// 		// print_r();
-		// 	}
-		// }
+			if ($insert_successful == false) {
+				$errors = true;
+				echo "Failed to insert replay timeline event: "+$event_data;
+				// print_r();
+			}
+		}
 
-		// if ($errors == false) {
-		// 	echo "Success: all replay events inserted";
-		// }
+		if ($errors == false) {
+			echo "Success: all replay events inserted";
+		}
 		// print_r( json_decode(stripcslashes($_POST['data']))[0]->end_time );
 	} else {
 		echo "Where's my post data? Gimme something bro, I can't work with thin air!";
@@ -232,7 +233,7 @@ function insert_new_replay($replay_info){
 
 function insert_replay_timeline_event($replay_id, $event_data){
 	global $wpdb;
-	$table_name = add_prefixes('replay_timeline_events');
+	$table_name = add_prefixes('replay_macro_timelines');
 
 	// {'event': 'SCV Created', 'start_time': 492, 'end_time': 504, 'building_name': 'CC 2'}
 	$data = array(
