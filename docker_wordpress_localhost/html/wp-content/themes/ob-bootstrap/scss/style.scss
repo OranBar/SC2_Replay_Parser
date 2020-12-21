@@ -1,0 +1,26 @@
+/*
+Theme Name: Simple Bootstrap
+Theme URI: http://nicolas-van.github.io/wordpress-simple-bootstrap/
+Description: A clean base theme to use Twitter Boostrap 4 with Wordpress.
+Author: Nicolas Vanhoren
+Author URI: https://github.com/nicolas-van
+Version: 2.0.6
+Text Domain: simple-bootstrap
+License: MIT
+License URI: http://opensource.org/licenses/MIT
+Tags: one-column, two-columns, three-columns, left-sidebar, right-sidebar, custom-colors, custom-background, featured-images, translation-ready, custom-header, flexible-header, custom-menu, footer-widgets, blog, wide-blocks
+.
+Licensed under the MIT license.
+.
+*/
+@import "bootstrap_variables";
+@import "node_modules/bootstrap/scss/bootstrap";
+$fa-font-path: "./fonts";
+@import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+@import "node_modules/@fortawesome/fontawesome-free/scss/regular";
+@import "node_modules/@fortawesome/fontawesome-free/scss/solid";
+@import "node_modules/@fortawesome/fontawesome-free/scss/brands";
+
+@import "customization";
+@import "theme_customization";
+@import "wp";

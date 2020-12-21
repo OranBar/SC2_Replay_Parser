@@ -1,0 +1,421 @@
+/*
+    This file defines a lot of style necessary to make Wordpress work
+    correctly.
+
+    It is not recommended to edit it unless you know exactly what you
+    are doing.
+*/
+
+@mixin link-without-style(){
+    a {
+        color: inherit;
+        text-decoration: none;
+        &:hover, &:focus {
+            text-decoration: none;
+            color: $link-hover-color;
+        }
+    }
+}
+
+.block {
+    background-color: $block-bg;
+    border-radius: $block-border-radius;
+    padding: $block-padding $block-padding ($block-padding - $spacer) $block-padding;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    box-shadow: $block-shadow;
+    
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-x: hidden;
+    
+    &.block-title {
+        padding-bottom: $block-padding - 1rem;
+    }
+}
+
+/* Global image styling */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* post styling */
+
+#main>article {
+
+    header {
+        @include link-without-style();
+        
+        .meta {
+            @include link-without-style();
+            margin-bottom: 20px;
+        }
+    }
+
+    section {
+        @include clearfix();
+
+        /* For retro-compatibility with non-Gutenberg users */
+
+        img.alignleft {
+            float: left;
+            margin-right: 10px;
+        }
+
+        img.alignright {
+            float: right;
+            margin-left: 10px;
+        }
+
+        img.aligncenter {
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        /* To support align-wide */
+
+        .alignwide, .alignfull {
+            margin-left: (-$block-padding);
+            margin-right: (-$block-padding);
+            max-width: inherit;
+
+            &.wp-block-cover {
+                width: inherit;
+            }
+        }
+    }
+}
+
+/* comments */
+
+#comments {
+    @extend .block;
+}
+
+.commentlist {
+    @include list-unstyled();
+
+    .children {
+        @include list-unstyled();
+        margin-left: 20px;
+    }
+
+    .comment-body {
+        padding: 30px 0;
+        border-bottom: 1px solid $hr-border-color;
+
+        .edit-link a {
+            @extend .fa-pencil-alt;
+            &::before {
+                @extend .fas;
+                padding-right: 3px;
+            }
+            /*@extend .text-muted;
+            text-decoration: none;
+            &:hover, &:focus {
+                text-decoration: none;
+                color: $link-hover-color;
+            }*/
+        }
+    }
+
+    .comment .comment-body {
+        &>* {
+            padding-left: 50px;
+            position: relative;
+            .avatar {
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                padding: 2px;
+                position: absolute;
+                left: 0;
+                height: 34px;
+                top: 2px;
+                width: 34px;
+            }
+        }
+        .comment-author {
+            margin-bottom: 5px;
+            @include link-without-style();
+            .fn {
+                font-weight: bold;
+            }
+        }
+        .comment-metadata {
+            margin-bottom: 5px;
+            @include link-without-style();
+            @extend .text-muted;
+
+            &>a {
+                @extend .fa-clock;
+                &::before {
+                    @extend .fas;
+                    padding-right: 3px;
+                }
+            }
+        }
+        .reply a {
+            @extend .fa-reply;
+            &::before {
+                @extend .fas;
+                padding-right: 3px;
+            }
+        }
+    }
+}
+
+.comment-navigation {
+    @extend .list-inline;
+    &>li {
+        @extend .list-inline-item;
+        padding: 0px;
+        &>a {
+            padding: 0px 5px;
+        }
+    }
+}
+
+.comment-form {
+    .comment-form-author,
+    .comment-form-email,
+    .comment-form-url,
+    .comment-form-comment{
+        @extend .form-group;
+
+        input,
+        textarea{
+            @extend .form-control;
+        }
+
+        textarea{
+            height: auto;
+        }
+    }
+    .form-allowed-tags{
+        code{
+            white-space: normal;
+            color: $body-color;
+            background-color: transparent;
+        }
+    }
+    input[type='submit']{
+        @extend .btn;
+        @extend .btn-primary;
+    }
+}
+
+
+
+/* widget styles */
+
+.widget {
+    margin-bottom: 38px;
+    &:last-of-type {
+        margin-bottom: 18px;
+    }
+}
+
+.widgettitle {
+    margin-bottom: 9px;
+}
+
+.tagcloud {
+    a {
+        @extend .badge;
+        @extend .badge-secondary;
+    }
+}
+
+/* calendar widget */
+
+.widget_calendar {
+    >div {
+        @extend .table-responsive;
+    }
+    table {
+        @extend .table;
+        caption {
+            font-weight: bold;
+        }
+    }
+}
+
+/* widgets */
+
+.vertical-nav {
+    .widget ul {
+        @include list-unstyled();
+        li {
+            @include link-without-style();
+            padding: 5px 0;
+            border-bottom: 1px solid $hr-border-color;
+            &:last-of-type {
+                border-bottom: 0px;
+            }
+            ul {
+                margin-left: 15px;
+            }
+        }
+    }
+}
+
+/* footer */
+
+html {
+    height: 100%;
+}
+
+body {
+    background-size: cover;
+    height: 100%;
+}
+
+#content-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    width: 100%;
+}
+
+#page-content {
+    flex-grow: 1;
+}
+
+#inner-footer {
+    background-color: $footer-bg;
+    padding-top: $footer-padding;
+    padding-bottom: ($footer-padding - $spacer);
+}
+
+/* featured image */
+
+.featured-image {
+    margin: 0 (-$block-padding) $spacer (-$block-padding);
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* gallery */
+
+.gallery {
+    @include make-row();
+    .gallery-item {
+        @include make-col-ready();
+        @include media-breakpoint-up(xs) {
+            @include make-col(6);
+        }
+        @include media-breakpoint-up(sm) {
+            @include make-col(4);
+        }
+        @include media-breakpoint-up(md) {
+            @include make-col(3);
+        }
+        padding-bottom: 15px;
+    }
+}
+
+/* a style used for all headers */
+
+.article-header {
+    padding-bottom: (($spacer / 2) - 1);
+    margin-bottom: $spacer;
+    border-bottom: 1px solid $hr-border-color;
+    .has-post-thumbnail & {
+        border-bottom: none;
+    }
+}
+
+/* Port of Bootstrap 3's pager */
+
+
+.pager {
+    list-style: none;
+    padding-left: 0;
+
+    @extend .clearfix;
+
+    li {
+        display: inline;
+        > a,
+        > span {
+            @extend .btn;
+            @extend .btn-secondary;
+        }
+    }
+  
+    .next {
+        > a,
+        > span {
+            float: right;
+        }
+    }
+  
+    .previous {
+        > a,
+        > span {
+            float: left;
+        }
+    }
+}
+
+/* empty styles to please wordpress theme checker */
+
+.wp-caption {/**/}
+.wp-caption-text {/**/}
+.sticky {/**/}
+.gallery-caption {/**/}
+.bypostauthor {/**/}
+
+.screen-reader-text {
+    @extend .sr-only;
+}
+
+.header-image {
+    background-position: top center;
+    background-size: cover;
+    min-height: 350px;
+    text-align: center;
+    box-shadow: $block-shadow;
+    
+    @media (max-width: map-get($grid-breakpoints, 'lg') - 1px) {
+        min-height: 300px;
+    }
+    
+    @media (max-width: map-get($grid-breakpoints, 'md') - 1px) {
+        min-height: 250px;
+    }
+    
+    @media (max-width: map-get($grid-breakpoints, 'sm') - 1px) {
+        min-height: 200px;
+    }
+}
+
+.site-title {
+    @extend .h1;
+    font-weight: bold;
+}
+
+.site-description {
+    @extend .h3;
+    font-weight: bold;
+}
+
+.skip-link {
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    color: #21759b;
+    right: 5px;
+    font-size: 14px;
+    font-size: 0.875rem;
+    font-weight: bold;
+    top: 5px;
+    position: absolute !important;
+    z-index: 1000;
+    padding: 3px;
+}
