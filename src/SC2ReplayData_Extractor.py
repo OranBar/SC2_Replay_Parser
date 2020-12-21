@@ -84,7 +84,7 @@ class SC2ReplayData_Extractor:
 
 		p1_race = p1_race + players[0]['AssignedRace']
 		p2_race = p2_race + players[1]['AssignedRace']
-		return p1_race+"vs"+p2_race
+		return p1_race[0]+"v"+p2_race[0]
 
 	def get_map_name(self):
 		return self.metadata['Title']

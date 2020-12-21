@@ -57,7 +57,7 @@ if __name__ == "__main__":
 	replay_info['game_length'] = replay_data_extractor.get_game_length()
 	replay_info['looser_player_id'] = replay_data_extractor.get_looser_player_id()
 	replay_info['matchup'] = replay_data_extractor.get_matchup()
-
+	replay_info['player_1_has_won'] = bool(replay_data_extractor.get_winner_player_id() == 1)
 
 	analized_replay = SC2AnalyzedReplay(replay_data_extractor)
 	
