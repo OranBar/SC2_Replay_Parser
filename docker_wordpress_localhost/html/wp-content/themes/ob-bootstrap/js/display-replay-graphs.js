@@ -3,7 +3,14 @@
 (function () {
 	'use strict';
 	window.addEventListener('load', function () {
-		document.getElementById('dbg').innerHTML = JSON.parse(replay_data.events)[10]['event_id'];
+		var replay_events_list = JSON.parse(replay_data.events);
+		// document.getElementById('dbg').innerHTML = JSON.parse(replay_data.events)[10]['event_id'];
+		// series_data = []
+		// labels = replay_events_list.map(function (e) { return replay_events_list['event_name']; });
+		var labels = replay_events_list.map(e => e['event_name']);
+		let uniqueItems = [...new Set(labels)]
+		document.getElementById('dbg').innerHTML = uniqueItems;
+		
 
 		var options = {
 			series: [] ,

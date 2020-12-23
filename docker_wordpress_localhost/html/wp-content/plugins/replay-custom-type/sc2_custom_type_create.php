@@ -2,7 +2,7 @@
 /*
 Plugin Name: Register Sc2Repalys as Custom Post Types
 Plugin URI: http://oranbar.com/sry_doesnt_exist
-Description: Plugin to register a custom type for Sc2 Replay Analysis powered by
+Description: API for SC2 Replay Analysis
 Version: 1.0
 Author: Oran Bar
 Author URI:http://oranbar.com
@@ -17,7 +17,7 @@ add_action('init', 'initialize_sc2_db_structures');
 add_action('init', 'create_plugin_database_tables');
 
 function initialize_sc2_db_structures(){
-	create_replay_posttype();
+	// create_replay_posttype();
 	create_plugin_database_tables();
 	register_rest_api();
 }
@@ -67,16 +67,25 @@ function register_rest_api(){
 			register_rest_route($namespace, 'test_get', [
 				'methods' => 'GET',
 				'callback' => 'test_get',
+				// 'permission_callback' => true
 			]);
 
 			register_rest_route($namespace, 'test_post', [
 				'methods' => 'POST',
 				'callback' => 'test_post',
+				// 'permission_callback' => true
 			]);
 
 			register_rest_route($namespace, 'upload_analyzed_replay', [
 				'methods' => 'POST',
 				'callback' => 'upload_analyzed_replay',
+				// 'permission_callback' => true
+			]);
+
+			register_rest_route($namespace, 'show_replay', [
+				'methods' => 'GET',
+				'callback' => 'show_replay',
+				// 'permission_callback' => true
 			]);
 		}
 	);
@@ -110,25 +119,26 @@ function create_replays_table(){
 	$charset_collate = $wpdb->get_charset_collate();
 
 	#Check to see if the table exists already, if not, then create it
-	// if(table_doesnt_exist($table_name)){
+	if(table_doesnt_exist($table_name)){
 
-	$wpdb->query("DROP TABLE IF EXISTS `$table_name`;");	
+		// $wpdb->query("DROP TABLE IF EXISTS `$table_name`;");	
 
-	$sql = "CREATE TABLE `$table_name` (
-		replay_id INT NOT NULL AUTO_INCREMENT,
-		upload_time DATETIME NOT null,
-		owner_user_id INT,
-		player_1 VARCHAR(50),
-		player_2 VARCHAR(50),
-		player_1_has_won BOOLEAN,
-		game_length INT,
-		matchup VARCHAR(6),
-		
-		PRIMARY KEY( `replay_id` )
+		$sql = "CREATE TABLE `$table_name` (
+			replay_id INT NOT NULL AUTO_INCREMENT,
+			upload_time DATETIME NOT null,
+			owner_user_id INT,
+			player_1 VARCHAR(50),
+			player_2 VARCHAR(50),
+			player_1_has_won BOOLEAN,
+			game_length INT,
+			matchup VARCHAR(6),
+			
+			PRIMARY KEY( `replay_id` )
 
-	)    $charset_collate;";
+		)    $charset_collate;";
 
-	$wpdb->query($sql);
+		$wpdb->query($sql);
+	}
 }
 
 
@@ -142,24 +152,24 @@ function create_replay_macro_timelines_table()
 	$charset_collate = $wpdb->get_charset_collate();
 
 	#Check to see if the table exists already, if not, then create it
-	// if (table_doesnt_exist($table_name)) {
+	if (table_doesnt_exist($table_name)) {
 
-	$wpdb->query("DROP TABLE IF EXISTS $table_name;");	
+		// $wpdb->query("DROP TABLE IF EXISTS $table_name;");	
 
-	$sql = "CREATE TABLE `$table_name` (
-		event_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-		replay_id INT NOT NULL, 
-		event_name VARCHAR(70) NOT NULL,
-		start_time_seconds INT NOT NULL,
-		end_time_seconds INT NOT NULL,
-		building_name VARCHAR(50) NOT NULL,
+		$sql = "CREATE TABLE `$table_name` (
+			event_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+			replay_id INT NOT NULL, 
+			event_name VARCHAR(70) NOT NULL,
+			start_time_seconds INT NOT NULL,
+			end_time_seconds INT NOT NULL,
+			building_name VARCHAR(50) NOT NULL,
 
-		INDEX $table_name" . "_index( replay_id, building_name, start_time_seconds )
-		
-	)    $charset_collate;";
+			INDEX $table_name" . "_index( replay_id, building_name, start_time_seconds )
+			
+		)    $charset_collate;";
 
-	$wpdb->query($sql);
-	// }
+		$wpdb->query($sql);
+	}
 }
 
 # Tables Add Entry ##################
@@ -176,6 +186,7 @@ function upload_analyzed_replay()
 		$errors = false;
 		
 		$replay_id = insert_new_replay($replay_info);
+
 		foreach($timeline_events as $event_data){
 
 			// $insert_successful = insert_replay_timeline_event($replay_id, $timeline_events[0]);
@@ -207,7 +218,7 @@ function insert_new_replay($replay_info){
 	// {'event': 'SCV Created', 'start_time': 492, 'end_time': 504, 'building_name': 'CC 2'}
 	$data = array(
 		'upload_time' => $current_time,
-		'owner_user_id' => get_current_user_id(),
+		'owner_user_id' => 0,
 		'player_1' => $replay_info->players_names[0] ,
 		'player_2' => $replay_info->players_names[1] ,
 		'player_1_has_won' => $replay_info->winner_player_id == 1,
