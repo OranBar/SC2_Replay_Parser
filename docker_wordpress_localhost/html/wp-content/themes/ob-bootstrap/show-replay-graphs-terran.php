@@ -30,12 +30,12 @@ get_header(); ?>
 
 </div>
 
-<!-- <div class="container text-center">
+<div class="container text-center">
 	<div class="row justify-content-center">
 		<div id="chart">
 		</div>
 	</div>
-</div> -->
+</div>
 
 
 <?php get_footer(); ?>
