@@ -44,7 +44,7 @@
 			</nav>
 		</header>
 
-		<?php if (has_header_image()) : ?>
+		<!-- <?php if (has_header_image()) : ?>
 			<div class="header-image-container">
 				<div class="header-image" style="background-image: url(<?php echo get_header_image(); ?>)">
 					<div class="container pt-5">
@@ -55,7 +55,7 @@
 					</div>
 				</div>
 			</div>
-		<?php endif ?>
+		<?php endif ?> -->
 
 		<div id="page-content">
 			<div class="container">
