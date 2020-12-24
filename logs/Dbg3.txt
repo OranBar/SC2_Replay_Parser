@@ -1,94 +1,95 @@
 {'event': 'SCV Created', 'start_time': 0, 'end_time': 12, 'building_name': 'CC 1'}
 {'event': 'SCV Created', 'start_time': 12, 'end_time': 24, 'building_name': 'CC 1'}
 {'event': 'SCV Created', 'start_time': 24, 'end_time': 36, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 38, 'end_time': 50, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 50, 'end_time': 62, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 64, 'end_time': 76, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 76, 'end_time': 88, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 88, 'end_time': 100, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 100, 'end_time': 112, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 113, 'end_time': 125, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 125, 'end_time': 137, 'building_name': 'CC 1'}
-{'event': 'OrbitalCommand Researched', 'start_time': 140, 'end_time': 165, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 167, 'end_time': 179, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 180, 'end_time': 192, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 192, 'end_time': 204, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 204, 'end_time': 216, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 227, 'end_time': 239, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 239, 'end_time': 251, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 251, 'end_time': 263, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 263, 'end_time': 275, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 275, 'end_time': 287, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 287, 'end_time': 299, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 300, 'end_time': 312, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 312, 'end_time': 324, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 324, 'end_time': 336, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 43, 'end_time': 55, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 55, 'end_time': 67, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 68, 'end_time': 80, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 80, 'end_time': 92, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 92, 'end_time': 104, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 104, 'end_time': 116, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 117, 'end_time': 129, 'building_name': 'CC 1'}
+{'event': 'OrbitalCommand Researched', 'start_time': 129, 'end_time': 154, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 157, 'end_time': 169, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 173, 'end_time': 185, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 185, 'end_time': 197, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 197, 'end_time': 209, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 209, 'end_time': 221, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 221, 'end_time': 233, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 238, 'end_time': 250, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 250, 'end_time': 262, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 262, 'end_time': 274, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 274, 'end_time': 286, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 286, 'end_time': 298, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 310, 'end_time': 322, 'building_name': 'CC 1'}
 {'event': 'SCV Created', 'start_time': 339, 'end_time': 351, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 351, 'end_time': 363, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 368, 'end_time': 380, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 383, 'end_time': 395, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 395, 'end_time': 407, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 407, 'end_time': 419, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 437, 'end_time': 449, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 449, 'end_time': 461, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 468, 'end_time': 480, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 543, 'end_time': 555, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 555, 'end_time': 567, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 567, 'end_time': 579, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 579, 'end_time': 591, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 591, 'end_time': 603, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 627, 'end_time': 639, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 639, 'end_time': 651, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 651, 'end_time': 663, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 688, 'end_time': 700, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 700, 'end_time': 712, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 727, 'end_time': 739, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 739, 'end_time': 751, 'building_name': 'CC 1'}
-{'event': 'SCV Created', 'start_time': 763, 'end_time': 775, 'building_name': 'CC 1'}
-{'event': 'OrbitalCommand Researched', 'start_time': 949, 'end_time': 974, 'building_name': 'CC 1'}
-{'event': 'OrbitalCommand Researched', 'start_time': 133, 'end_time': 158, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 168, 'end_time': 180, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 180, 'end_time': 192, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 192, 'end_time': 204, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 227, 'end_time': 239, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 239, 'end_time': 251, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 251, 'end_time': 263, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 263, 'end_time': 275, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 275, 'end_time': 287, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 287, 'end_time': 299, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 300, 'end_time': 312, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 312, 'end_time': 324, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 385, 'end_time': 397, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 400, 'end_time': 412, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 421, 'end_time': 433, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 433, 'end_time': 445, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 445, 'end_time': 457, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 458, 'end_time': 470, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 498, 'end_time': 510, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 510, 'end_time': 522, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 522, 'end_time': 534, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 563, 'end_time': 575, 'building_name': 'CC 1'}
+{'event': 'OrbitalCommand Researched', 'start_time': 604, 'end_time': 629, 'building_name': 'CC 1'}
+{'event': 'SCV Created', 'start_time': 818, 'end_time': 830, 'building_name': 'CC 1'}
+{'event': 'Idle', 'start_time': 36, 'end_time': 43, 'building_name': 'CC 1'}
+{'event': 'Idle', 'start_time': 154, 'end_time': 157, 'building_name': 'CC 1'}
+{'event': 'Idle', 'start_time': 169, 'end_time': 173, 'building_name': 'CC 1'}
+{'event': 'Idle', 'start_time': 233, 'end_time': 238, 'building_name': 'CC 1'}
+{'event': 'Idle', 'start_time': 298, 'end_time': 310, 'building_name': 'CC 1'}
+{'event': 'Idle', 'start_time': 322, 'end_time': 339, 'building_name': 'CC 1'}
+{'event': 'Idle', 'start_time': 351, 'end_time': 385, 'building_name': 'CC 1'}
+{'event': 'Idle', 'start_time': 397, 'end_time': 400, 'building_name': 'CC 1'}
+{'event': 'Idle', 'start_time': 412, 'end_time': 421, 'building_name': 'CC 1'}
+{'event': 'Idle', 'start_time': 470, 'end_time': 498, 'building_name': 'CC 1'}
+{'event': 'Idle', 'start_time': 534, 'end_time': 563, 'building_name': 'CC 1'}
+{'event': 'Idle', 'start_time': 575, 'end_time': 604, 'building_name': 'CC 1'}
+{'event': 'OrbitalCommand Researched', 'start_time': 136, 'end_time': 161, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 165, 'end_time': 177, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 177, 'end_time': 189, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 189, 'end_time': 201, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 201, 'end_time': 213, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 214, 'end_time': 226, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 226, 'end_time': 238, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 238, 'end_time': 250, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 250, 'end_time': 262, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 262, 'end_time': 274, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 274, 'end_time': 286, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 286, 'end_time': 298, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 311, 'end_time': 323, 'building_name': 'CC 2'}
 {'event': 'SCV Created', 'start_time': 339, 'end_time': 351, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 351, 'end_time': 363, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 369, 'end_time': 381, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 383, 'end_time': 395, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 395, 'end_time': 407, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 407, 'end_time': 419, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 437, 'end_time': 449, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 449, 'end_time': 461, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 468, 'end_time': 480, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 543, 'end_time': 555, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 555, 'end_time': 567, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 567, 'end_time': 579, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 586, 'end_time': 598, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 598, 'end_time': 610, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 628, 'end_time': 640, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 640, 'end_time': 652, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 688, 'end_time': 700, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 727, 'end_time': 739, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 739, 'end_time': 751, 'building_name': 'CC 2'}
-{'event': 'SCV Created', 'start_time': 763, 'end_time': 775, 'building_name': 'CC 2'}
-{'event': 'OrbitalCommand Researched', 'start_time': 464, 'end_time': 489, 'building_name': 'CC 3'}
-{'event': 'SCV Created', 'start_time': 586, 'end_time': 598, 'building_name': 'CC 3'}
-{'event': 'SCV Created', 'start_time': 599, 'end_time': 611, 'building_name': 'CC 3'}
-{'event': 'SCV Created', 'start_time': 628, 'end_time': 640, 'building_name': 'CC 3'}
-{'event': 'SCV Created', 'start_time': 641, 'end_time': 653, 'building_name': 'CC 3'}
-{'event': 'SCV Created', 'start_time': 688, 'end_time': 700, 'building_name': 'CC 3'}
-{'event': 'SCV Created', 'start_time': 727, 'end_time': 739, 'building_name': 'CC 3'}
-{'event': 'SCV Created', 'start_time': 739, 'end_time': 751, 'building_name': 'CC 3'}
-{'event': 'SCV Created', 'start_time': 764, 'end_time': 776, 'building_name': 'CC 3'}
-{'event': 'SCV Created', 'start_time': 628, 'end_time': 640, 'building_name': 'CC 4'}
-{'event': 'SCV Created', 'start_time': 641, 'end_time': 653, 'building_name': 'CC 4'}
-{'event': 'SCV Created', 'start_time': 739, 'end_time': 751, 'building_name': 'CC 5'}
-{'event': 'SCV Created', 'start_time': 751, 'end_time': 763, 'building_name': 'CC 5'}
-{'event': 'SCV Created', 'start_time': 763, 'end_time': 775, 'building_name': 'CC 5'}
+{'event': 'SCV Created', 'start_time': 386, 'end_time': 398, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 400, 'end_time': 412, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 421, 'end_time': 433, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 433, 'end_time': 445, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 450, 'end_time': 462, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 462, 'end_time': 474, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 498, 'end_time': 510, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 510, 'end_time': 522, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 522, 'end_time': 534, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 564, 'end_time': 576, 'building_name': 'CC 2'}
+{'event': 'SCV Created', 'start_time': 818, 'end_time': 830, 'building_name': 'CC 2'}
+{'event': 'Idle', 'start_time': 161, 'end_time': 165, 'building_name': 'CC 2'}
+{'event': 'Idle', 'start_time': 298, 'end_time': 311, 'building_name': 'CC 2'}
+{'event': 'Idle', 'start_time': 323, 'end_time': 339, 'building_name': 'CC 2'}
+{'event': 'Idle', 'start_time': 351, 'end_time': 386, 'building_name': 'CC 2'}
+{'event': 'Idle', 'start_time': 398, 'end_time': 400, 'building_name': 'CC 2'}
+{'event': 'Idle', 'start_time': 412, 'end_time': 421, 'building_name': 'CC 2'}
+{'event': 'Idle', 'start_time': 445, 'end_time': 450, 'building_name': 'CC 2'}
+{'event': 'Idle', 'start_time': 474, 'end_time': 498, 'building_name': 'CC 2'}
+{'event': 'Idle', 'start_time': 534, 'end_time': 564, 'building_name': 'CC 2'}
+{'event': 'OrbitalCommand Researched', 'start_time': 423, 'end_time': 448, 'building_name': 'CC 3'}
+{'event': 'SCV Created', 'start_time': 450, 'end_time': 462, 'building_name': 'CC 3'}
+{'event': 'SCV Created', 'start_time': 498, 'end_time': 510, 'building_name': 'CC 3'}
+{'event': 'SCV Created', 'start_time': 510, 'end_time': 522, 'building_name': 'CC 3'}
+{'event': 'SCV Created', 'start_time': 522, 'end_time': 534, 'building_name': 'CC 3'}
+{'event': 'SCV Created', 'start_time': 564, 'end_time': 576, 'building_name': 'CC 3'}
+{'event': 'SCV Created', 'start_time': 818, 'end_time': 830, 'building_name': 'CC 3'}
+{'event': 'Idle', 'start_time': 448, 'end_time': 450, 'building_name': 'CC 3'}
+{'event': 'Idle', 'start_time': 462, 'end_time': 498, 'building_name': 'CC 3'}
+{'event': 'Idle', 'start_time': 534, 'end_time': 564, 'building_name': 'CC 3'}
+{'event': 'OrbitalCommand Researched', 'start_time': 673, 'end_time': 698, 'building_name': 'CC 4'}
+{'event': 'SCV Created', 'start_time': 818, 'end_time': 830, 'building_name': 'CC 4'}
+{'event': 'OrbitalCommand Researched', 'start_time': 698, 'end_time': 723, 'building_name': 'CC 6'}

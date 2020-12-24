@@ -31,8 +31,8 @@
 		var options = {
 			series: series_data ,
 			chart: {
-				height: 350,
-				width: 800,
+				height: 450,
+				width: 1400,
 				type: 'rangeBar'
 			},
 			plotOptions: {

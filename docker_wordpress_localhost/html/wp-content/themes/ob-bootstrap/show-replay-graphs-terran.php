@@ -25,11 +25,6 @@ Template Name: Replay Terran
 
 get_header(); ?>
 
-<div class='container'>
-	<h1 id='dbg'>Random Blabla </h1>
-
-</div>
-
 <div class="container text-center">
 	<div class="row justify-content-center">
 		<div id="chart">
